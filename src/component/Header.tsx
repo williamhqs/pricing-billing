@@ -34,7 +34,7 @@ export default function Header() {
             fontSize: 14,
             fontWeight: 400,
             fontFamily: "Inter",
-            color: "#000000",
+            color: "#ffffffeb",
             textAlign: "left",
             lineHeight: "21px",
             whiteSpace: "nowrap",

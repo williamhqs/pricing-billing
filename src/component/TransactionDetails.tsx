@@ -1,0 +1,293 @@
+export default function TransactionDetails() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 0,
+        paddingTop: 16,
+        paddingRight: 0,
+        paddingBottom: 0,
+        paddingLeft: 0,
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 0,
+          paddingTop: 0,
+          paddingRight: 0,
+          paddingBottom: 0,
+          paddingLeft: 0,
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          width: "100%",
+          height: 224,
+          backgroundColor: "#ffffff",
+          borderRadius: 6,
+          border: "1px solid #e5e7eb",
+          boxShadow: "0px 1px 2px #1a2a4a0a",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 0,
+            paddingTop: 12,
+            paddingRight: 20,
+            paddingBottom: 12,
+            paddingLeft: 20,
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            width: "100%",
+            border: "1px solid #e5e7eb",
+          }}
+        >
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 600,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              textAlign: "left",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Transaction Details
+          </span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 0,
+            paddingTop: 20,
+            paddingRight: 24,
+            paddingBottom: 20,
+            paddingLeft: 24,
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            width: "100%",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 6,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                paddingTop: 0,
+                paddingRight: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                width: "100%",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "Inter",
+                  color: "#6b7280",
+                  textAlign: "left",
+                  lineHeight: "18px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Transaction Amount
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                paddingTop: 0,
+                paddingRight: 12,
+                paddingBottom: 0,
+                paddingLeft: 12,
+                justifyContent: "center",
+                alignItems: "flex-start",
+                width: 280,
+                height: 36,
+                backgroundColor: "#ffffff",
+                borderRadius: 4,
+                border: "1px solid #e5e7eb",
+                overflow: "hidden",
+              }}
+            >
+              <span
+                style={{
+                  width: "100%",
+                  fontSize: 14,
+                  fontWeight: 400,
+                  fontFamily: "Inter",
+                  color: "#1a2a4a",
+                  textAlign: "left",
+                  lineHeight: "21px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                20000.00
+              </span>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 6,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                paddingTop: 0,
+                paddingRight: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                width: "100%",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "Inter",
+                  color: "#6b7280",
+                  textAlign: "left",
+                  lineHeight: "18px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Currency
+              </span>
+            </div>
+            <div
+              style={{
+                width: 480,
+                height: 36,
+                backgroundColor: "#ffffff",
+                borderRadius: 4,
+                border: "1px solid #e5e7eb",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 6,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                paddingTop: 0,
+                paddingRight: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                width: "100%",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "Inter",
+                  color: "#6b7280",
+                  textAlign: "left",
+                  lineHeight: "18px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Remarks
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                paddingTop: 0,
+                paddingRight: 12,
+                paddingBottom: 0,
+                paddingLeft: 12,
+                justifyContent: "center",
+                alignItems: "flex-start",
+                width: 994,
+                height: 36,
+                backgroundColor: "#ffffff",
+                borderRadius: 4,
+                border: "1px solid #e5e7eb",
+                overflow: "hidden",
+              }}
+            >
+              <span
+                style={{
+                  width: "100%",
+                  fontSize: 14,
+                  fontWeight: 400,
+                  fontFamily: "Inter",
+                  color: "#1a2a4a",
+                  textAlign: "left",
+                  lineHeight: "21px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Goods payment
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
