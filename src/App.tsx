@@ -3,6 +3,7 @@ import Buttons from "./component/Buttons";
 import CorporateTransferFeeCollectionFullDEMO from "./component/CorporateTransferFeeCollectionFullDEMO";
 import FeeEstimation from "./component/FeeEstimation";
 import Header from "./component/Header";
+import MenuLabel from "./component/MenuLabel";
 import PayeeInformation from "./component/PayeeInformation";
 import PayerInformation from "./component/PayerInformation";
 import ProgressBar from "./component/ProgressBar";
@@ -17,7 +18,7 @@ function App() {
       <Header />
       <div className="w-275 mx-auto bg-[#F5F6FA]">
         <ProgressBar />
-        <span>Domestic Transfer</span>
+        <MenuLabel />
         <PayerInformation />
         <PayeeInformation />
         <TransactionDetails />

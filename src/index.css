@@ -12,6 +12,14 @@ body,
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 body {
+  font-family: "Inter", sans-serif;
   background-color: #f5f6fa;
 }
