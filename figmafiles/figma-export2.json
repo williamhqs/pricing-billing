@@ -1,0 +1,197 @@
+{
+  "nodes": [
+    {
+      "id": "89:195",
+      "name": "Container",
+      "type": "FRAME",
+      "visible": true,
+      "layout": {
+        "autoLayout": true,
+        "mode": "HORIZONTAL",
+        "primaryAxisAlign": "MAX",
+        "counterAxisAlign": "MIN",
+        "gap": 12,
+        "padding": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "x": 0,
+        "y": 1050,
+        "width": 1044,
+        "height": 56,
+        "layoutSizingHorizontal": "FIXED",
+        "layoutSizingVertical": "FIXED"
+      },
+      "fill": null,
+      "stroke": null,
+      "cornerRadius": 0,
+      "opacity": 1,
+      "effects": [],
+      "children": [
+        {
+          "id": "89:196",
+          "name": "Button",
+          "type": "FRAME",
+          "visible": true,
+          "layout": {
+            "autoLayout": true,
+            "mode": "HORIZONTAL",
+            "primaryAxisAlign": "CENTER",
+            "counterAxisAlign": "CENTER",
+            "gap": 8,
+            "padding": {
+              "top": 0,
+              "right": 22,
+              "bottom": 0,
+              "left": 22
+            },
+            "x": 853,
+            "y": 16,
+            "width": 85,
+            "height": 40,
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "FIXED"
+          },
+          "fill": {
+            "type": "SOLID",
+            "color": "#ffffff"
+          },
+          "stroke": {
+            "color": "#cbd5e1",
+            "width": 1
+          },
+          "cornerRadius": 4,
+          "opacity": 1,
+          "effects": [],
+          "children": [
+            {
+              "id": "89:197",
+              "name": "Reset",
+              "type": "TEXT",
+              "visible": true,
+              "layout": {
+                "autoLayout": false,
+                "mode": "NONE",
+                "primaryAxisAlign": null,
+                "counterAxisAlign": null,
+                "gap": 0,
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "x": 23,
+                "y": 9.5,
+                "width": 39,
+                "height": 21,
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG"
+              },
+              "fill": {
+                "type": "SOLID",
+                "color": "#1a2a4a"
+              },
+              "stroke": null,
+              "cornerRadius": 0,
+              "opacity": 1,
+              "effects": [],
+              "text": {
+                "characters": "Reset",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "fontFamily": "Inter",
+                "textAlign": "center",
+                "lineHeight": 21,
+                "color": "#1a2a4a"
+              }
+            }
+          ]
+        },
+        {
+          "id": "89:199",
+          "name": "Button",
+          "type": "FRAME",
+          "visible": true,
+          "layout": {
+            "autoLayout": true,
+            "mode": "HORIZONTAL",
+            "primaryAxisAlign": "CENTER",
+            "counterAxisAlign": "CENTER",
+            "gap": 8,
+            "padding": {
+              "top": 0,
+              "right": 22,
+              "bottom": 0,
+              "left": 22
+            },
+            "x": 950,
+            "y": 16,
+            "width": 94,
+            "height": 40,
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "FIXED"
+          },
+          "fill": {
+            "type": "SOLID",
+            "color": "#e31e24"
+          },
+          "stroke": {
+            "color": "#e31e24",
+            "width": 1
+          },
+          "cornerRadius": 4,
+          "opacity": 1,
+          "effects": [],
+          "children": [
+            {
+              "id": "89:200",
+              "name": "Submit",
+              "type": "TEXT",
+              "visible": true,
+              "layout": {
+                "autoLayout": false,
+                "mode": "NONE",
+                "primaryAxisAlign": null,
+                "counterAxisAlign": null,
+                "gap": 0,
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "x": 23,
+                "y": 9.5,
+                "width": 48,
+                "height": 21,
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG"
+              },
+              "fill": {
+                "type": "SOLID",
+                "color": "#ffffff"
+              },
+              "stroke": null,
+              "cornerRadius": 0,
+              "opacity": 1,
+              "effects": [],
+              "text": {
+                "characters": "Submit",
+                "fontSize": 14,
+                "fontWeight": 600,
+                "fontFamily": "Inter",
+                "textAlign": "center",
+                "lineHeight": 21,
+                "color": "#ffffff"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "images": {}
+}

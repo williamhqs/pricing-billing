@@ -1,0 +1,148 @@
+{
+  "nodes": [
+    {
+      "id": "89:4",
+      "name": "Container",
+      "type": "FRAME",
+      "visible": true,
+      "layout": {
+        "autoLayout": false,
+        "mode": "NONE",
+        "primaryAxisAlign": "MIN",
+        "counterAxisAlign": "MIN",
+        "gap": 0,
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "x": 0,
+        "y": 0,
+        "width": 1100,
+        "height": 4,
+        "layoutSizingHorizontal": "FILL",
+        "layoutSizingVertical": "FIXED"
+      },
+      "fill": {
+        "type": "SOLID",
+        "color": "#e31e24"
+      },
+      "stroke": null,
+      "cornerRadius": 0,
+      "opacity": 1,
+      "effects": [],
+      "children": []
+    },
+    {
+      "id": "89:5",
+      "name": "Header",
+      "type": "FRAME",
+      "visible": true,
+      "layout": {
+        "autoLayout": true,
+        "mode": "HORIZONTAL",
+        "primaryAxisAlign": "MAX",
+        "counterAxisAlign": "CENTER",
+        "gap": 0,
+        "padding": {
+          "top": 0,
+          "right": 28,
+          "bottom": 0,
+          "left": 28
+        },
+        "x": 0,
+        "y": 4,
+        "width": 1100,
+        "height": 56,
+        "layoutSizingHorizontal": "FILL",
+        "layoutSizingVertical": "FIXED"
+      },
+      "fill": {
+        "type": "SOLID",
+        "color": "#1a2a4a"
+      },
+      "stroke": null,
+      "cornerRadius": 0,
+      "opacity": 1,
+      "effects": [],
+      "children": [
+        {
+          "id": "89:6",
+          "name": "Container",
+          "type": "FRAME",
+          "visible": true,
+          "layout": {
+            "autoLayout": true,
+            "mode": "VERTICAL",
+            "primaryAxisAlign": "MIN",
+            "counterAxisAlign": "MIN",
+            "gap": 0,
+            "padding": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "x": 946,
+            "y": 17.5,
+            "width": 126,
+            "height": 21,
+            "layoutSizingHorizontal": "HUG",
+            "layoutSizingVertical": "HUG"
+          },
+          "fill": null,
+          "stroke": null,
+          "cornerRadius": 0,
+          "opacity": 1,
+          "effects": [],
+          "children": [
+            {
+              "id": "89:7",
+              "name": "Teller: Zhang Ming",
+              "type": "TEXT",
+              "visible": true,
+              "layout": {
+                "autoLayout": false,
+                "mode": "NONE",
+                "primaryAxisAlign": null,
+                "counterAxisAlign": null,
+                "gap": 0,
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "x": 0,
+                "y": 0,
+                "width": 126,
+                "height": 21,
+                "layoutSizingHorizontal": "HUG",
+                "layoutSizingVertical": "HUG"
+              },
+              "fill": {
+                "type": "SOLID",
+                "color": "#ffffffeb"
+              },
+              "stroke": null,
+              "cornerRadius": 0,
+              "opacity": 1,
+              "effects": [],
+              "text": {
+                "characters": "Teller: Zhang Ming",
+                "fontSize": 14,
+                "fontWeight": 400,
+                "fontFamily": "Inter",
+                "textAlign": "left",
+                "lineHeight": 21,
+                "color": "#ffffffeb"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "images": {}
+}

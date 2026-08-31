@@ -1,0 +1,1139 @@
+{
+  "nodes": [
+    {
+      "id": "89:205",
+      "name": "Container:margin",
+      "type": "FRAME",
+      "visible": true,
+      "layout": {
+        "autoLayout": true,
+        "mode": "VERTICAL",
+        "primaryAxisAlign": "MIN",
+        "counterAxisAlign": "MIN",
+        "gap": 0,
+        "padding": {
+          "top": 16,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "x": 0,
+        "y": 738,
+        "width": 1044,
+        "height": 312,
+        "layoutSizingHorizontal": "FILL",
+        "layoutSizingVertical": "HUG"
+      },
+      "fill": null,
+      "stroke": null,
+      "cornerRadius": 0,
+      "opacity": 1,
+      "effects": [],
+      "children": [
+        {
+          "id": "89:154",
+          "name": "Container",
+          "type": "FRAME",
+          "visible": true,
+          "layout": {
+            "autoLayout": true,
+            "mode": "VERTICAL",
+            "primaryAxisAlign": "MIN",
+            "counterAxisAlign": "MIN",
+            "gap": 0,
+            "padding": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "x": 0,
+            "y": 16,
+            "width": 1044,
+            "height": 296,
+            "layoutSizingHorizontal": "FILL",
+            "layoutSizingVertical": "FIXED"
+          },
+          "fill": {
+            "type": "SOLID",
+            "color": "#ffffff"
+          },
+          "stroke": {
+            "color": "#e5e7eb",
+            "width": 1
+          },
+          "cornerRadius": 6,
+          "opacity": 1,
+          "effects": [
+            {
+              "type": "DROP_SHADOW",
+              "color": "#1a2a4a0a",
+              "offsetX": 0,
+              "offsetY": 1,
+              "blur": 2
+            }
+          ],
+          "children": [
+            {
+              "id": "89:155",
+              "name": "Container",
+              "type": "FRAME",
+              "visible": true,
+              "layout": {
+                "autoLayout": true,
+                "mode": "VERTICAL",
+                "primaryAxisAlign": "MIN",
+                "counterAxisAlign": "MIN",
+                "gap": 0,
+                "padding": {
+                  "top": 12,
+                  "right": 20,
+                  "bottom": 12,
+                  "left": 20
+                },
+                "x": 1,
+                "y": 1,
+                "width": 1042,
+                "height": 46,
+                "layoutSizingHorizontal": "FILL",
+                "layoutSizingVertical": "HUG"
+              },
+              "fill": null,
+              "stroke": {
+                "color": "#e5e7eb",
+                "width": 1
+              },
+              "cornerRadius": 0,
+              "opacity": 1,
+              "effects": [],
+              "children": [
+                {
+                  "id": "89:156",
+                  "name": "Fee Estimation",
+                  "type": "TEXT",
+                  "visible": true,
+                  "layout": {
+                    "autoLayout": false,
+                    "mode": "NONE",
+                    "primaryAxisAlign": null,
+                    "counterAxisAlign": null,
+                    "gap": 0,
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "x": 20,
+                    "y": 12,
+                    "width": 100,
+                    "height": 21,
+                    "layoutSizingHorizontal": "HUG",
+                    "layoutSizingVertical": "HUG"
+                  },
+                  "fill": {
+                    "type": "SOLID",
+                    "color": "#1a2a4a"
+                  },
+                  "stroke": null,
+                  "cornerRadius": 0,
+                  "opacity": 1,
+                  "effects": [],
+                  "text": {
+                    "characters": "Fee Estimation",
+                    "fontSize": 14,
+                    "fontWeight": 600,
+                    "fontFamily": "Inter",
+                    "textAlign": "left",
+                    "lineHeight": 21,
+                    "color": "#1a2a4a"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "89:158",
+              "name": "Container",
+              "type": "FRAME",
+              "visible": true,
+              "layout": {
+                "autoLayout": true,
+                "mode": "VERTICAL",
+                "primaryAxisAlign": "MIN",
+                "counterAxisAlign": "MIN",
+                "gap": 0,
+                "padding": {
+                  "top": 20,
+                  "right": 24,
+                  "bottom": 20,
+                  "left": 24
+                },
+                "x": 1,
+                "y": 47,
+                "width": 1042,
+                "height": 248,
+                "layoutSizingHorizontal": "FILL",
+                "layoutSizingVertical": "HUG"
+              },
+              "fill": null,
+              "stroke": null,
+              "cornerRadius": 0,
+              "opacity": 1,
+              "effects": [],
+              "children": [
+                {
+                  "id": "89:159",
+                  "name": "Container",
+                  "type": "FRAME",
+                  "visible": true,
+                  "layout": {
+                    "autoLayout": true,
+                    "mode": "VERTICAL",
+                    "primaryAxisAlign": "MIN",
+                    "counterAxisAlign": "MIN",
+                    "gap": 0,
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "x": 24,
+                    "y": 20,
+                    "width": 994,
+                    "height": 208,
+                    "layoutSizingHorizontal": "FILL",
+                    "layoutSizingVertical": "FIXED"
+                  },
+                  "fill": null,
+                  "stroke": {
+                    "color": "#e5e7eb",
+                    "width": 1
+                  },
+                  "cornerRadius": 6,
+                  "opacity": 1,
+                  "effects": [],
+                  "children": [
+                    {
+                      "id": "89:160",
+                      "name": "Container",
+                      "type": "FRAME",
+                      "visible": true,
+                      "layout": {
+                        "autoLayout": true,
+                        "mode": "HORIZONTAL",
+                        "primaryAxisAlign": "SPACE_BETWEEN",
+                        "counterAxisAlign": "MIN",
+                        "gap": 0,
+                        "padding": {
+                          "top": 10,
+                          "right": 14,
+                          "bottom": 10,
+                          "left": 14
+                        },
+                        "x": 1,
+                        "y": 1,
+                        "width": 992,
+                        "height": 40.5,
+                        "layoutSizingHorizontal": "FILL",
+                        "layoutSizingVertical": "FIXED"
+                      },
+                      "fill": null,
+                      "stroke": {
+                        "color": "#e5e7eb",
+                        "width": 1
+                      },
+                      "cornerRadius": 0,
+                      "opacity": 1,
+                      "effects": [],
+                      "children": [
+                        {
+                          "id": "89:161",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 14,
+                            "y": 10,
+                            "width": 57,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:162",
+                              "name": "Fee Type",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 57,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#6b7280"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Fee Type",
+                                "fontSize": 13,
+                                "fontWeight": 400,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#6b7280"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "89:164",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 760,
+                            "y": 10,
+                            "width": 218,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:165",
+                              "name": "Domestic Transfer Fee - Corporate",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 218,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#1a2a4a"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Domestic Transfer Fee - Corporate",
+                                "fontSize": 13,
+                                "fontWeight": 600,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#1a2a4a"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "89:167",
+                      "name": "Container",
+                      "type": "FRAME",
+                      "visible": true,
+                      "layout": {
+                        "autoLayout": true,
+                        "mode": "HORIZONTAL",
+                        "primaryAxisAlign": "SPACE_BETWEEN",
+                        "counterAxisAlign": "MIN",
+                        "gap": 0,
+                        "padding": {
+                          "top": 10,
+                          "right": 14,
+                          "bottom": 10,
+                          "left": 14
+                        },
+                        "x": 1,
+                        "y": 41.5,
+                        "width": 992,
+                        "height": 40.5,
+                        "layoutSizingHorizontal": "FILL",
+                        "layoutSizingVertical": "FIXED"
+                      },
+                      "fill": null,
+                      "stroke": {
+                        "color": "#e5e7eb",
+                        "width": 1
+                      },
+                      "cornerRadius": 0,
+                      "opacity": 1,
+                      "effects": [],
+                      "children": [
+                        {
+                          "id": "89:168",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 14,
+                            "y": 10,
+                            "width": 59,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:169",
+                              "name": "Fee Code",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 59,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#6b7280"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Fee Code",
+                                "fontSize": 13,
+                                "fontWeight": 400,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#6b7280"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "89:171",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 946,
+                            "y": 10,
+                            "width": 32,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:172",
+                              "name": "1605",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 32,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#1a2a4a"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "1605",
+                                "fontSize": 13,
+                                "fontWeight": 600,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#1a2a4a"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "89:174",
+                      "name": "Container",
+                      "type": "FRAME",
+                      "visible": true,
+                      "layout": {
+                        "autoLayout": true,
+                        "mode": "HORIZONTAL",
+                        "primaryAxisAlign": "SPACE_BETWEEN",
+                        "counterAxisAlign": "MIN",
+                        "gap": 0,
+                        "padding": {
+                          "top": 10,
+                          "right": 14,
+                          "bottom": 10,
+                          "left": 14
+                        },
+                        "x": 1,
+                        "y": 82,
+                        "width": 992,
+                        "height": 40.5,
+                        "layoutSizingHorizontal": "FILL",
+                        "layoutSizingVertical": "FIXED"
+                      },
+                      "fill": null,
+                      "stroke": {
+                        "color": "#e5e7eb",
+                        "width": 1
+                      },
+                      "cornerRadius": 0,
+                      "opacity": 1,
+                      "effects": [],
+                      "children": [
+                        {
+                          "id": "89:175",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 14,
+                            "y": 10,
+                            "width": 57,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:176",
+                              "name": "Base Fee",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 57,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#6b7280"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Base Fee",
+                                "fontSize": 13,
+                                "fontWeight": 400,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#6b7280"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "89:178",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 942,
+                            "y": 10,
+                            "width": 36,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:179",
+                              "name": "10.00",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 36,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#1a2a4a"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "10.00",
+                                "fontSize": 13,
+                                "fontWeight": 600,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#1a2a4a"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "89:181",
+                      "name": "Container",
+                      "type": "FRAME",
+                      "visible": true,
+                      "layout": {
+                        "autoLayout": true,
+                        "mode": "HORIZONTAL",
+                        "primaryAxisAlign": "SPACE_BETWEEN",
+                        "counterAxisAlign": "MIN",
+                        "gap": 0,
+                        "padding": {
+                          "top": 10,
+                          "right": 14,
+                          "bottom": 10,
+                          "left": 14
+                        },
+                        "x": 1,
+                        "y": 122.5,
+                        "width": 992,
+                        "height": 40.5,
+                        "layoutSizingHorizontal": "FILL",
+                        "layoutSizingVertical": "FIXED"
+                      },
+                      "fill": null,
+                      "stroke": {
+                        "color": "#e5e7eb",
+                        "width": 1
+                      },
+                      "cornerRadius": 0,
+                      "opacity": 1,
+                      "effects": [],
+                      "children": [
+                        {
+                          "id": "89:182",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 14,
+                            "y": 10,
+                            "width": 55,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:183",
+                              "name": "Discount",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 55,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#6b7280"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Discount",
+                                "fontSize": 13,
+                                "fontWeight": 400,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#6b7280"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "89:185",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 949,
+                            "y": 10,
+                            "width": 29,
+                            "height": 19.5,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:186",
+                              "name": "0.50",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 29,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#1a2a4a"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "0.50",
+                                "fontSize": 13,
+                                "fontWeight": 600,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#1a2a4a"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "89:188",
+                      "name": "Container",
+                      "type": "FRAME",
+                      "visible": true,
+                      "layout": {
+                        "autoLayout": true,
+                        "mode": "HORIZONTAL",
+                        "primaryAxisAlign": "SPACE_BETWEEN",
+                        "counterAxisAlign": "MIN",
+                        "gap": 0,
+                        "padding": {
+                          "top": 10,
+                          "right": 14,
+                          "bottom": 10,
+                          "left": 14
+                        },
+                        "x": 1,
+                        "y": 163,
+                        "width": 992,
+                        "height": 44,
+                        "layoutSizingHorizontal": "FILL",
+                        "layoutSizingVertical": "FIXED"
+                      },
+                      "fill": null,
+                      "stroke": null,
+                      "cornerRadius": 0,
+                      "opacity": 1,
+                      "effects": [],
+                      "children": [
+                        {
+                          "id": "89:189",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 14,
+                            "y": 10,
+                            "width": 85,
+                            "height": 24,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:190",
+                              "name": "Proposed Fee",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 85,
+                                "height": 20,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#6b7280"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "Proposed Fee",
+                                "fontSize": 13,
+                                "fontWeight": 400,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 19.5,
+                                "color": "#6b7280"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "89:192",
+                          "name": "Text",
+                          "type": "FRAME",
+                          "visible": true,
+                          "layout": {
+                            "autoLayout": true,
+                            "mode": "VERTICAL",
+                            "primaryAxisAlign": "MIN",
+                            "counterAxisAlign": "MIN",
+                            "gap": 0,
+                            "padding": {
+                              "top": 0,
+                              "right": 0,
+                              "bottom": 0,
+                              "left": 0
+                            },
+                            "x": 903,
+                            "y": 10,
+                            "width": 75,
+                            "height": 24,
+                            "layoutSizingHorizontal": "HUG",
+                            "layoutSizingVertical": "FILL"
+                          },
+                          "fill": null,
+                          "stroke": null,
+                          "cornerRadius": 0,
+                          "opacity": 1,
+                          "effects": [],
+                          "children": [
+                            {
+                              "id": "89:193",
+                              "name": "9.50 CNY",
+                              "type": "TEXT",
+                              "visible": true,
+                              "layout": {
+                                "autoLayout": false,
+                                "mode": "NONE",
+                                "primaryAxisAlign": null,
+                                "counterAxisAlign": null,
+                                "gap": 0,
+                                "padding": {
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
+                                  "left": 0
+                                },
+                                "x": 0,
+                                "y": 0,
+                                "width": 75,
+                                "height": 24,
+                                "layoutSizingHorizontal": "HUG",
+                                "layoutSizingVertical": "HUG"
+                              },
+                              "fill": {
+                                "type": "SOLID",
+                                "color": "#e31e24"
+                              },
+                              "stroke": null,
+                              "cornerRadius": 0,
+                              "opacity": 1,
+                              "effects": [],
+                              "text": {
+                                "characters": "9.50 CNY",
+                                "fontSize": 16,
+                                "fontWeight": 600,
+                                "fontFamily": "Inter",
+                                "textAlign": "left",
+                                "lineHeight": 24,
+                                "color": "#e31e24"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "images": {}
+}
