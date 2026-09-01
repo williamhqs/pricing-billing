@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Step } from "../types/types";
 import TopBarView from "../component/FeeInit/TopBarView";
 import HeaderView from "../component/FeeInit/HeaderView";
-import ProgressBar from "../component/FeeInit/ProgressBar";
 import MenuLabelView from "../component/FeeInit/MenuLabelView";
 import PayerInformationView from "../component/FeeInit/PayerInformationView";
 import PayeeInformationView from "../component/FeeInit/PayeeInformationView";
@@ -21,7 +20,6 @@ export default function HomeScreen() {
       <TopBarView />
       <HeaderView />
       <div className="w-275 mx-auto bg-[#F5F6FA]">
-        <ProgressBar />
         {step === Step.Init && (
           <div className="flex flex-col gap-2.5">
             <MenuLabelView />
