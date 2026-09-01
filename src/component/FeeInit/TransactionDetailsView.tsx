@@ -1,4 +1,4 @@
-import Dropdown from "../shared/BankDropdown";
+import BankDropdown from "../shared/BankDropdown";
 import { BankInput } from "../shared/BankInput";
 
 export default function TransactionDetailsView() {
@@ -154,7 +154,7 @@ export default function TransactionDetailsView() {
               Currency
             </span>
           </div>
-          <Dropdown
+          <BankDropdown
             width={280}
             value="cny"
             options={[

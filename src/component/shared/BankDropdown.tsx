@@ -14,7 +14,7 @@ interface DropdownProps {
   width?: number;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
+const BankDropdown: React.FC<DropdownProps> = ({
   options,
   value,
   onChange,
@@ -108,4 +108,4 @@ const Dropdown: React.FC<DropdownProps> = ({
   );
 };
 
-export default Dropdown;
+export default BankDropdown;
