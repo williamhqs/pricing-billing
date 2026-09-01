@@ -15,7 +15,7 @@ import { TwoActionMenu } from "./TwoActionMenu";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
-  const [selectedMenuKey, setselectedMenuKey] = useState("FeeInit");
+  const [selectedMenuKey, setselectedMenuKey] = useState("TransferInitiation");
   return (
     <>
       <TopBarView />
@@ -26,10 +26,10 @@ export default function HomeScreen() {
             activeKey={selectedMenuKey}
             items={[
               {
-                key: "FeeInit",
-                label: "Fee Init",
+                key: "TransferInitiation",
+                label: "Transfer Initiation",
                 onClick: () => {
-                  setselectedMenuKey("FeeInit");
+                  setselectedMenuKey("TransferInitiation");
                   setStep(Step.Init);
                 },
               },

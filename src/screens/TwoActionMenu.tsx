@@ -29,12 +29,12 @@ export function TwoActionMenu({ items, activeKey }: TwoActionMenuProps) {
             onClick={item.onClick}
             style={{
               padding: "8px 16px",
-              border: isActive ? "1px solid #2563eb" : "1px solid #e5e7eb",
+              border: isActive ? "2px solid #1a2a4a" : "1px solid #e5e7eb",
               borderRadius: 6,
               background: isActive ? "#eff6ff" : "#fff",
               fontFamily: "Inter",
               cursor: "pointer",
-              color: isActive ? "#2563eb" : "#333",
+              color: isActive ? "#1a2a4a" : "#333",
               fontWeight: isActive ? 500 : 400,
             }}
           >
