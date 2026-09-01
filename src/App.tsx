@@ -1,6 +1,7 @@
+import { useState } from "react";
 import "./App.css";
 import Buttons from "./component/Buttons";
-import CorporateTransferFeeCollectionFullDEMO from "./component/CorporateTransferFeeCollectionFullDEMO";
+import BannerView from "./component/FeeConfirmation/BannerView";
 import FeeEstimation from "./component/FeeEstimation";
 import Header from "./component/Header";
 import MenuLabel from "./component/MenuLabel";
@@ -9,21 +10,33 @@ import PayerInformation from "./component/PayerInformation";
 import ProgressBar from "./component/ProgressBar";
 import TopBar from "./component/TopBar";
 import TransactionDetails from "./component/TransactionDetails";
+import FeeConfirmationView from "./component/FeeConfirmation/FeeConfirmationView";
 
 function App() {
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
   return (
     <>
-      {/* <CorporateTransferFeeCollectionFullDEMO /> */}
       <TopBar />
       <Header />
       <div className="w-275 mx-auto bg-[#F5F6FA]">
         <ProgressBar />
-        <MenuLabel />
-        <PayerInformation />
-        <PayeeInformation />
-        <TransactionDetails />
-        <FeeEstimation />
-        <Buttons />
+        {isConfirmed ? (
+          <>
+            <BannerView />
+
+            <FeeConfirmationView />
+          </>
+        ) : (
+          <>
+            <MenuLabel />
+            <PayerInformation />
+            <PayeeInformation />
+            <TransactionDetails />
+            <FeeEstimation />
+            <Buttons onConfirm={() => setIsConfirmed(true)} />
+          </>
+        )}
       </div>
     </>
   );
