@@ -1,4 +1,4 @@
-export default function FeeEstimation() {
+export default function FeeInitEstimationView() {
   return (
     <div
       style={{

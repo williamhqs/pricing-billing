@@ -1,4 +1,4 @@
-export default function TransactionDetails() {
+export default function PayerInformationView() {
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ export default function TransactionDetails() {
         justifyContent: "flex-start",
         alignItems: "flex-start",
         width: "100%",
-        height: 224,
+        height: 210,
         backgroundColor: "#ffffff",
         borderRadius: 6,
         border: "1px solid #e5e7eb",
@@ -46,7 +46,7 @@ export default function TransactionDetails() {
             whiteSpace: "nowrap",
           }}
         >
-          Transaction Details
+          Payer Information
         </span>
       </div>
       <div
@@ -98,7 +98,7 @@ export default function TransactionDetails() {
                 whiteSpace: "nowrap",
               }}
             >
-              Transaction Amount
+              Payer Account No.
             </span>
           </div>
           <div
@@ -132,7 +132,7 @@ export default function TransactionDetails() {
                 whiteSpace: "nowrap",
               }}
             >
-              20000.00
+              622200000000000000
             </span>
           </div>
         </div>
@@ -179,18 +179,37 @@ export default function TransactionDetails() {
                 whiteSpace: "nowrap",
               }}
             >
-              Currency
+              Account Name
             </span>
           </div>
           <div
             style={{
-              width: 480,
-              height: 36,
-              backgroundColor: "#ffffff",
-              borderRadius: 4,
-              border: "1px solid #e5e7eb",
+              display: "flex",
+              flexDirection: "column",
+              gap: 0,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
             }}
-          />
+          >
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 500,
+                fontFamily: "Inter",
+                color: "#1a2a4a",
+                textAlign: "left",
+                lineHeight: "21px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Huolala Group
+            </span>
+          </div>
         </div>
         <div
           style={{
@@ -235,7 +254,7 @@ export default function TransactionDetails() {
                 whiteSpace: "nowrap",
               }}
             >
-              Remarks
+              Customer No.
             </span>
           </div>
           <div
@@ -244,24 +263,18 @@ export default function TransactionDetails() {
               flexDirection: "column",
               gap: 0,
               paddingTop: 0,
-              paddingRight: 12,
+              paddingRight: 0,
               paddingBottom: 0,
-              paddingLeft: 12,
-              justifyContent: "center",
+              paddingLeft: 0,
+              justifyContent: "flex-start",
               alignItems: "flex-start",
-              width: 994,
-              height: 36,
-              backgroundColor: "#ffffff",
-              borderRadius: 4,
-              border: "1px solid #e5e7eb",
-              overflow: "hidden",
+              width: "100%",
             }}
           >
             <span
               style={{
-                width: "100%",
                 fontSize: 14,
-                fontWeight: 400,
+                fontWeight: 500,
                 fontFamily: "Inter",
                 color: "#1a2a4a",
                 textAlign: "left",
@@ -269,7 +282,82 @@ export default function TransactionDetails() {
                 whiteSpace: "nowrap",
               }}
             >
-              Goods payment
+              20260330000002
+            </span>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            paddingTop: 0,
+            paddingRight: 0,
+            paddingBottom: 0,
+            paddingLeft: 0,
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            position: "absolute",
+            left: 537,
+            top: 96,
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 0,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
+            }}
+          >
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                fontFamily: "Inter",
+                color: "#6b7280",
+                textAlign: "left",
+                lineHeight: "18px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Available Balance
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 0,
+              paddingTop: 0,
+              paddingRight: 0,
+              paddingBottom: 0,
+              paddingLeft: 0,
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: "100%",
+            }}
+          >
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 500,
+                fontFamily: "Inter",
+                color: "#1a2a4a",
+                textAlign: "left",
+                lineHeight: "21px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              500,000.00 CNY
             </span>
           </div>
         </div>

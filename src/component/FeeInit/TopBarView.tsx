@@ -1,4 +1,4 @@
-export default function TopBar() {
+export default function TopBarView() {
   return (
     <div
       style={{

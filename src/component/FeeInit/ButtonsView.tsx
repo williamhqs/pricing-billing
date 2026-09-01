@@ -1,4 +1,4 @@
-export default function Buttons({ onConfirm }: { onConfirm: () => void }) {
+export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
   return (
     <div
       style={{

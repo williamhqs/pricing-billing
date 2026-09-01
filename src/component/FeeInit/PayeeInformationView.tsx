@@ -1,4 +1,4 @@
-export default function PayerInformation() {
+export default function PayeeInformationView() {
   return (
     <div
       style={{
@@ -46,7 +46,7 @@ export default function PayerInformation() {
             whiteSpace: "nowrap",
           }}
         >
-          Payer Information
+          Payee Information
         </span>
       </div>
       <div
@@ -98,7 +98,7 @@ export default function PayerInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Payer Account No.
+              Payee Account No.
             </span>
           </div>
           <div
@@ -132,7 +132,7 @@ export default function PayerInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              622200000000000000
+              6217003829165047281
             </span>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function PayerInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Huolala Group
+              Shanghai XYZ Trading Co., Ltd.
             </span>
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function PayerInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Customer No.
+              Bank Name
             </span>
           </div>
           <div
@@ -282,82 +282,7 @@ export default function PayerInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              20260330000002
-            </span>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 6,
-            paddingTop: 0,
-            paddingRight: 0,
-            paddingBottom: 0,
-            paddingLeft: 0,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            position: "absolute",
-            left: 537,
-            top: 96,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 12,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "18px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Available Balance
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#1a2a4a",
-                textAlign: "left",
-                lineHeight: "21px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              500,000.00 CNY
+              China Construction Bank, Shanghai Branch
             </span>
           </div>
         </div>

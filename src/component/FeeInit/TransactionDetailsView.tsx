@@ -1,4 +1,4 @@
-export default function PayeeInformation() {
+export default function TransactionDetailsView() {
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ export default function PayeeInformation() {
         justifyContent: "flex-start",
         alignItems: "flex-start",
         width: "100%",
-        height: 210,
+        height: 224,
         backgroundColor: "#ffffff",
         borderRadius: 6,
         border: "1px solid #e5e7eb",
@@ -46,7 +46,7 @@ export default function PayeeInformation() {
             whiteSpace: "nowrap",
           }}
         >
-          Payee Information
+          Transaction Details
         </span>
       </div>
       <div
@@ -98,7 +98,7 @@ export default function PayeeInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Payee Account No.
+              Transaction Amount
             </span>
           </div>
           <div
@@ -132,7 +132,7 @@ export default function PayeeInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              6217003829165047281
+              20000.00
             </span>
           </div>
         </div>
@@ -179,37 +179,18 @@ export default function PayeeInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Account Name
+              Currency
             </span>
           </div>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
+              width: 480,
+              height: 36,
+              backgroundColor: "#ffffff",
+              borderRadius: 4,
+              border: "1px solid #e5e7eb",
             }}
-          >
-            <span
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#1a2a4a",
-                textAlign: "left",
-                lineHeight: "21px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Shanghai XYZ Trading Co., Ltd.
-            </span>
-          </div>
+          />
         </div>
         <div
           style={{
@@ -254,7 +235,7 @@ export default function PayeeInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              Bank Name
+              Remarks
             </span>
           </div>
           <div
@@ -263,18 +244,24 @@ export default function PayeeInformation() {
               flexDirection: "column",
               gap: 0,
               paddingTop: 0,
-              paddingRight: 0,
+              paddingRight: 12,
               paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
+              paddingLeft: 12,
+              justifyContent: "center",
               alignItems: "flex-start",
-              width: "100%",
+              width: 994,
+              height: 36,
+              backgroundColor: "#ffffff",
+              borderRadius: 4,
+              border: "1px solid #e5e7eb",
+              overflow: "hidden",
             }}
           >
             <span
               style={{
+                width: "100%",
                 fontSize: 14,
-                fontWeight: 500,
+                fontWeight: 400,
                 fontFamily: "Inter",
                 color: "#1a2a4a",
                 textAlign: "left",
@@ -282,7 +269,7 @@ export default function PayeeInformation() {
                 whiteSpace: "nowrap",
               }}
             >
-              China Construction Bank, Shanghai Branch
+              Goods payment
             </span>
           </div>
         </div>
