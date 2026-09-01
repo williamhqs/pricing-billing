@@ -1,3 +1,4 @@
+import BankDropdown from "../shared/BankDropdown";
 import { BankInput } from "../shared/BankInput";
 
 export default function TransactionDetailsView() {
@@ -153,10 +154,15 @@ export default function TransactionDetailsView() {
               Currency
             </span>
           </div>
-          <BankInput
-            value=""
+          <BankDropdown
+            width={280}
+            value="cny"
+            options={[
+              { label: "CNY", value: "cny" },
+              { label: "USD", value: "usd" },
+              { label: "SGD", value: "sgd" },
+            ]}
             onChange={() => {}}
-            placeholder="Please input currency"
           />
         </div>
         <div
