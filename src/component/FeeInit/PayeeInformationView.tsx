@@ -117,7 +117,6 @@ export default function PayeeInformationView() {
               backgroundColor: "#ffffff",
               borderRadius: 4,
               border: "1px solid #e5e7eb",
-              overflow: "hidden",
             }}
           >
             <span

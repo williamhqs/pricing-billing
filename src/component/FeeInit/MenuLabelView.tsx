@@ -12,6 +12,8 @@ export default function MenuLabelView() {
         justifyContent: "flex-start",
         alignItems: "flex-start",
         width: "100%",
+        marginTop: 8,
+        marginBottom: 8,
       }}
     >
       <span

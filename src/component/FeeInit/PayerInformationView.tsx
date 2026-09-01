@@ -117,7 +117,6 @@ export default function PayerInformationView() {
               backgroundColor: "#ffffff",
               borderRadius: 4,
               border: "1px solid #e5e7eb",
-              overflow: "hidden",
             }}
           >
             <span
@@ -128,7 +127,7 @@ export default function PayerInformationView() {
                 fontFamily: "Inter",
                 color: "#1a2a4a",
                 textAlign: "left",
-                lineHeight: "21px",
+                lineHeight: "36px",
                 whiteSpace: "nowrap",
               }}
             >

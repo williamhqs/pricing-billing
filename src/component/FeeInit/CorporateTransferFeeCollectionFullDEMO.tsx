@@ -714,7 +714,7 @@ export default function CorporateTransferFeeCollectionFullDEMO() {
                       justifyContent: "center",
                       alignItems: "flex-start",
                       width: 280,
-                      height: 36,
+                      height: 6,
                       backgroundColor: "#ffffff",
                       borderRadius: 4,
                       border: "1px solid #e5e7eb",
