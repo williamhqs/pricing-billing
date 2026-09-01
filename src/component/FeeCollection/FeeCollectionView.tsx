@@ -1,4 +1,3 @@
-import BankDropdown from "../shared/BankDropdown";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
 
 export default function FeeCollectionView() {
