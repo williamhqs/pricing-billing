@@ -1,3 +1,5 @@
+import { BankInput } from "../shared/BankInput";
+
 export default function PayerInformationView() {
   return (
     <div
@@ -70,7 +72,7 @@ export default function PayerInformationView() {
             left: 24,
             top: 20,
             width: "100%",
-            height: "100%",
+            // height: "100%",
           }}
         >
           <div
@@ -101,39 +103,11 @@ export default function PayerInformationView() {
               Payer Account No.
             </span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 12,
-              paddingBottom: 0,
-              paddingLeft: 12,
-              justifyContent: "center",
-              alignItems: "flex-start",
-              width: 280,
-              height: 36,
-              backgroundColor: "#ffffff",
-              borderRadius: 4,
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            <span
-              style={{
-                width: "100%",
-                fontSize: 14,
-                fontWeight: 400,
-                fontFamily: "Inter",
-                color: "#1a2a4a",
-                textAlign: "left",
-                lineHeight: "36px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              622200000000000000
-            </span>
-          </div>
+          <BankInput
+            value=""
+            onChange={() => {}}
+            placeholder="Please input account No."
+          />
         </div>
         <div
           style={{

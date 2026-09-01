@@ -1,3 +1,5 @@
+import { BankInput } from "../shared/BankInput";
+
 export default function PayeeInformationView() {
   return (
     <div
@@ -70,7 +72,6 @@ export default function PayeeInformationView() {
             left: 24,
             top: 20,
             width: "100%",
-            height: "100%",
           }}
         >
           <div
@@ -101,39 +102,11 @@ export default function PayeeInformationView() {
               Payee Account No.
             </span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 12,
-              paddingBottom: 0,
-              paddingLeft: 12,
-              justifyContent: "center",
-              alignItems: "flex-start",
-              width: 280,
-              height: 36,
-              backgroundColor: "#ffffff",
-              borderRadius: 4,
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            <span
-              style={{
-                width: "100%",
-                fontSize: 14,
-                fontWeight: 400,
-                fontFamily: "Inter",
-                color: "#1a2a4a",
-                textAlign: "left",
-                lineHeight: "21px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              6217003829165047281
-            </span>
-          </div>
+          <BankInput
+            value=""
+            onChange={() => {}}
+            placeholder="Please input payee account No."
+          />
         </div>
         <div
           style={{
