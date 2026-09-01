@@ -11,9 +11,11 @@ import ProgressBar from "./component/ProgressBar";
 import TopBar from "./component/TopBar";
 import TransactionDetails from "./component/TransactionDetails";
 import FeeConfirmationView from "./component/FeeConfirmation/FeeConfirmationView";
+import { Step } from "./types/types";
+import FeeCollectionView from "./component/FeeCollection/FeeCollectionView";
 
 function App() {
-  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [step, setStep] = useState<Step>(Step.Init);
 
   return (
     <>
@@ -21,22 +23,25 @@ function App() {
       <Header />
       <div className="w-275 mx-auto bg-[#F5F6FA]">
         <ProgressBar />
-        {isConfirmed ? (
-          <>
-            <BannerView />
-
-            <FeeConfirmationView />
-          </>
-        ) : (
+        {step === Step.Init && (
           <>
             <MenuLabel />
             <PayerInformation />
             <PayeeInformation />
             <TransactionDetails />
             <FeeEstimation />
-            <Buttons onConfirm={() => setIsConfirmed(true)} />
+            <Buttons onConfirm={() => setStep(Step.FeeConfirmation)} />
           </>
         )}
+        {step === Step.FeeConfirmation && (
+          <>
+            <BannerView />
+            <FeeConfirmationView
+              onConfirm={() => setStep(Step.FeeCollection)}
+            />
+          </>
+        )}
+        {step === Step.FeeCollection && <FeeCollectionView />}
       </div>
     </>
   );

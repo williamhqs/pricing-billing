@@ -1,4 +1,8 @@
-export default function FeeConfirmationView() {
+export default function FeeConfirmationView({
+  onConfirm,
+}: {
+  onConfirm: () => void;
+}) {
   return (
     <div
       style={{
@@ -629,6 +633,7 @@ export default function FeeConfirmationView() {
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            onClick={onConfirm}
           >
             <span
               style={{
