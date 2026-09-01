@@ -13,6 +13,7 @@ export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
         alignItems: "flex-start",
         width: 1044,
         height: 56,
+        marginBottom: 36
       }}
     >
       <button

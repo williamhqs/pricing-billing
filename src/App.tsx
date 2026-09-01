@@ -24,14 +24,14 @@ function App() {
       <div className="w-275 mx-auto bg-[#F5F6FA]">
         <ProgressBar />
         {step === Step.Init && (
-          <>
+          <div className="flex flex-col gap-2.5">
             <MenuLabelView />
             <PayerInformationView />
             <PayeeInformationView />
             <TransactionDetailsView />
             <FeeInitEstimationView />
             <ButtonsView onConfirm={() => setStep(Step.FeeConfirmation)} />
-          </>
+          </div>
         )}
         {step === Step.FeeConfirmation && (
           <>
