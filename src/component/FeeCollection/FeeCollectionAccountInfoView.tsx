@@ -5,29 +5,12 @@ export default function FeeCollectionAccountInfoView() {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 0,
-        paddingTop: 16,
-        paddingRight: 0,
-        paddingBottom: 0,
-        paddingLeft: 0,
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
         width: "100%",
+        paddingTop: 16,
       }}
     >
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 0,
-          paddingTop: 0,
-          paddingRight: 0,
-          paddingBottom: 0,
-          paddingLeft: 0,
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
           width: "100%",
           height: 355,
           backgroundColor: "#ffffff",
@@ -40,16 +23,12 @@ export default function FeeCollectionAccountInfoView() {
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: 0,
-            paddingTop: 12,
-            paddingRight: 20,
-            paddingBottom: 12,
-            paddingLeft: 20,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
+            alignItems: "center",
             width: "100%",
-            border: "1px solid #e5e7eb",
+            height: 46,
+            padding: "12px 20px",
+            borderBottom: "1px solid #e5e7eb",
+            boxSizing: "border-box",
           }}
         >
           <span
@@ -58,7 +37,6 @@ export default function FeeCollectionAccountInfoView() {
               fontWeight: 600,
               fontFamily: "Inter",
               color: "#1a2a4a",
-              textAlign: "left",
               lineHeight: "21px",
               whiteSpace: "nowrap",
             }}
@@ -66,24 +44,17 @@ export default function FeeCollectionAccountInfoView() {
             Collection Account
           </span>
         </div>
+
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 0,
-            paddingTop: 20,
-            paddingRight: 24,
-            paddingBottom: 20,
-            paddingLeft: 24,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            width: "100%",
+            padding: "20px 24px",
           }}
         >
           <div
             style={{
-              width: "100%",
-              position: "relative",
+              display: "grid",
+              gridTemplateColumns: "280px 280px",
+              columnGap: 32,
             }}
           >
             <div
@@ -91,47 +62,20 @@ export default function FeeCollectionAccountInfoView() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 6,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "100%",
-                height: "100%",
               }}
             >
-              <div
+              <span
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 0,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  width: "100%",
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "Inter",
+                  color: "#6b7280",
+                  lineHeight: "18px",
+                  whiteSpace: "nowrap",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 500,
-                    fontFamily: "Inter",
-                    color: "#6b7280",
-                    textAlign: "left",
-                    lineHeight: "18px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Collection Method
-                </span>
-              </div>
+                Collection Method
+              </span>
 
               <BankDropdown
                 width={280}
@@ -143,191 +87,79 @@ export default function FeeCollectionAccountInfoView() {
                 onChange={() => {}}
               />
             </div>
+
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 gap: 6,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                position: "absolute",
-                left: 513,
-                top: 0,
-                width: "100%",
-                height: "100%",
               }}
             >
-              <div
+              <span
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 0,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  width: "100%",
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "Inter",
+                  color: "#6b7280",
+                  lineHeight: "18px",
+                  whiteSpace: "nowrap",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 500,
-                    fontFamily: "Inter",
-                    color: "#6b7280",
-                    textAlign: "left",
-                    lineHeight: "18px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Select Collection Account
-                </span>
-              </div>
+                Select Collection Account
+              </span>
+
               <BankDropdown
                 width={280}
                 value="3"
                 options={[
-                  { label: "HT20240001 - 6228480837462910573", value: "3" },
-                  { label: "HT20240002 - 6228480837462910574", value: "4" },
-                  { label: "HT20240003 - 6228480837462910575", value: "5" },
+                  {
+                    label: "HT20240001 - 6228480837462910573",
+                    value: "3",
+                  },
+                  {
+                    label: "HT20240002 - 6228480837462910574",
+                    value: "4",
+                  },
+                  {
+                    label: "HT20240003 - 6228480837462910575",
+                    value: "5",
+                  },
                 ]}
                 onChange={() => {}}
               />
             </div>
           </div>
+
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
+              marginTop: 18,
               paddingTop: 18,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
+              borderTop: "1px solid #e5e7eb",
             }}
           >
             <div
               style={{
-                width: "100%",
-                border: "1px solid #e5e7eb",
-                position: "relative",
+                display: "grid",
+                gridTemplateColumns: "280px 280px",
+                columnGap: 32,
+                rowGap: 20,
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 0,
-                  top: 19,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <BankLabelValue label="Contract No." value="HT20240001" />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 513,
-                  top: 19,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <BankLabelValue label="Account No." value="Huolala Group" />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 0,
-                  top: 81,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <BankLabelValue
-                  label="Account Name"
-                  value="6228480837462910573"
-                />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 513,
-                  top: 81,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <BankLabelValue label="Account Type" value="Current Account" />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 0,
-                  top: 143,
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <BankLabelValue
-                  label="Available Balance"
-                  value="500,000.00 CNY"
-                />
-              </div>
+              <BankLabelValue label="Contract No." value="HT20240001" />
+
+              <BankLabelValue label="Account No." value="Huolala Group" />
+
+              <BankLabelValue
+                label="Account Name"
+                value="6228480837462910573"
+              />
+
+              <BankLabelValue label="Account Type" value="Current Account" />
+
+              <BankLabelValue
+                label="Available Balance"
+                value="500,000.00 CNY"
+              />
             </div>
           </div>
         </div>
