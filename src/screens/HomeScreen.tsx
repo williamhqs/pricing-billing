@@ -11,15 +11,39 @@ import ButtonsView from "../component/FeeInit/ButtonsView";
 import BannerView from "../component/FeeConfirmation/BannerView";
 import FeeConfirmationView from "../component/FeeConfirmation/FeeConfirmationView";
 import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
+import { TwoActionMenu } from "./TwoActionMenu";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
-
+  const [selectedMenuKey, setselectedMenuKey] = useState("FeeInit");
   return (
     <>
       <TopBarView />
       <HeaderView />
       <div className="w-275 mx-auto bg-[#F5F6FA]">
+        <div style={{ padding: 30 }}>
+          <TwoActionMenu
+            activeKey={selectedMenuKey}
+            items={[
+              {
+                key: "FeeInit",
+                label: "Fee Init",
+                onClick: () => {
+                  setselectedMenuKey("FeeInit");
+                  setStep(Step.Init);
+                },
+              },
+              {
+                key: "FeeCollection",
+                label: "Fee Collection",
+                onClick: () => {
+                  setselectedMenuKey("FeeCollection");
+                  setStep(Step.FeeCollection);
+                },
+              },
+            ]}
+          />
+        </div>
         {step === Step.Init && (
           <div className="flex flex-col gap-2.5">
             <MenuLabelView />
