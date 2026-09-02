@@ -19,7 +19,7 @@ export default function FeeCollectionView({
         justifyContent: "flex-start",
         alignItems: "flex-start",
         width: "100%",
-        height: 843,
+        height: 863,
       }}
     >
       <MenuLabelView title={"Fee Collection"} />
@@ -455,6 +455,7 @@ export default function FeeCollectionView({
           </div>
         </div>
       </div>
+
       <FeeCollectionAccountInfoView />
       <div
         style={{
