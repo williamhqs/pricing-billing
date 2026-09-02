@@ -12,6 +12,7 @@ import BannerView from "../component/FeeConfirmation/BannerView";
 import FeeConfirmationView from "../component/FeeConfirmation/FeeConfirmationView";
 import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
 import { TwoActionMenu } from "../component/shared/TwoActionMenu";
+import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -54,6 +55,7 @@ export default function HomeScreen() {
             <ButtonsView onConfirm={() => setStep(Step.FeeConfirmation)} />
           </div>
         )}
+
         {step === Step.FeeConfirmation && (
           <>
             <BannerView />
@@ -62,9 +64,11 @@ export default function HomeScreen() {
                 setselectedMenuKey("FeeCollection");
                 setStep(Step.FeeCollection);
               }}
+              onAdjustment={() => setStep(Step.FeeAdjustment)}
             />
           </>
         )}
+        {step === Step.FeeAdjustment && <FeeAdjustmentView />}
         {step === Step.FeeCollection && <FeeCollectionView />}
       </div>
     </>
