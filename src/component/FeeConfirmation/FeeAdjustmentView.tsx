@@ -1,3 +1,5 @@
+import { BankInput } from "../shared/BankInput";
+
 export default function FeeAdjustmentView() {
   return (
     <div
@@ -580,40 +582,7 @@ export default function FeeAdjustmentView() {
                       Manual Adjustment (CNY)
                     </span>
                   </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 12,
-                      paddingBottom: 0,
-                      paddingLeft: 12,
-                      justifyContent: "center",
-                      alignItems: "flex-start",
-                      width: 280,
-                      height: 36,
-                      backgroundColor: "#ffffff",
-                      borderRadius: 4,
-                      border: "1px solid #e5e7eb",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: "100%",
-                        fontSize: 14,
-                        fontWeight: 400,
-                        fontFamily: "Inter",
-                        color: "#1a2a4a",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      9.50
-                    </span>
-                  </div>
+                  <BankInput value="9.5" onChange={() => {}} />
                 </div>
               </div>
               <div
