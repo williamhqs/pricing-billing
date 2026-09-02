@@ -157,555 +157,7 @@ export default function FeeAdjustmentView() {
             Manual Adjustment.
           </span>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 0,
-            paddingTop: 16,
-            paddingRight: 0,
-            paddingBottom: 0,
-            paddingLeft: 0,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            width: "100%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
-              height: 394,
-              backgroundColor: "#ffffff",
-              borderRadius: 6,
-              border: "1px solid #e5e7eb",
-              boxShadow: "0px 1px 2px #1a2a4a0a",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 12,
-                paddingRight: 20,
-                paddingBottom: 12,
-                paddingLeft: 20,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-                border: "1px solid #e5e7eb",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 600,
-                  fontFamily: "Inter",
-                  color: "#1a2a4a",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Approval Details
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 20,
-                paddingRight: 24,
-                paddingBottom: 20,
-                paddingLeft: 24,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#6b7280",
-                        textAlign: "left",
-                        lineHeight: "18px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Business Reference No.
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#1a2a4a",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      BIZ20260829000001
-                    </span>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    position: "absolute",
-                    left: 513,
-                    top: 0,
-                    width: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#6b7280",
-                        textAlign: "left",
-                        lineHeight: "18px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Fee Code
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#1a2a4a",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      1605
-                    </span>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    position: "absolute",
-                    left: 0,
-                    top: 62,
-                    width: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#6b7280",
-                        textAlign: "left",
-                        lineHeight: "18px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Fee Type
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#1a2a4a",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Domestic Transfer Fee - Corporate
-                    </span>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    position: "absolute",
-                    left: 0,
-                    top: 124,
-                    width: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#6b7280",
-                        textAlign: "left",
-                        lineHeight: "18px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Proposed Fee
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 700,
-                        fontFamily: "Inter",
-                        color: "#e31e24",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      9.50 CNY
-                    </span>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    position: "absolute",
-                    left: 513,
-                    top: 124,
-                    width: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                      width: "100%",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 500,
-                        fontFamily: "Inter",
-                        color: "#6b7280",
-                        textAlign: "left",
-                        lineHeight: "18px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Manual Adjustment (CNY)
-                    </span>
-                  </div>
-                  <BankInput value="9.5" onChange={() => {}} />
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 0,
-                  paddingTop: 16,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                  width: "100%",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 16,
-                    paddingTop: 16,
-                    paddingRight: 18,
-                    paddingBottom: 16,
-                    paddingLeft: 18,
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                    backgroundColor: "#f0fdf4",
-                    borderRadius: 6,
-                    border: "1px solid #bbf7d0",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 600,
-                        fontFamily: "Inter",
-                        color: "#1a2a4a",
-                        textAlign: "left",
-                        lineHeight: "21px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Approved Fee
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 0,
-                      paddingTop: 0,
-                      paddingRight: 0,
-                      paddingBottom: 0,
-                      paddingLeft: 0,
-                      justifyContent: "flex-start",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 28,
-                        fontWeight: 700,
-                        fontFamily: "Inter",
-                        color: "#16a34a",
-                        textAlign: "left",
-                        lineHeight: "42px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      9.50 CNY
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 0,
-                  paddingTop: 12,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  width: 994,
-                  height: 30,
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 400,
-                    fontFamily: "Inter",
-                    color: "#9ca3af",
-                    textAlign: "left",
-                    lineHeight: "18px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Approved Fee is calculated from Manual Adjustment and will be
-                  used for fee collection.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CenterDetailView />
         <div
           style={{
             display: "flex",
@@ -786,6 +238,313 @@ export default function FeeAdjustmentView() {
             </span>
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function CenterDetailView() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        marginTop: 16,
+        flexDirection: "column",
+        width: "100%",
+        height: 394,
+        backgroundColor: "#ffffff",
+        borderRadius: 6,
+        border: "1px solid #e5e7eb",
+        boxShadow: "0px 1px 2px #1a2a4a0a",
+        overflow: "hidden",
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          flexShrink: 0,
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          minHeight: 48,
+          padding: "12px 20px",
+          borderBottom: "1px solid #e5e7eb",
+        }}
+      >
+        <span
+          style={{
+            fontSize: 14,
+            fontWeight: 600,
+            fontFamily: "Inter",
+            color: "#1a2a4a",
+            lineHeight: "21px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Approval Details
+        </span>
+      </div>
+
+      {/* Details */}
+      <div
+        style={{
+          flex: 1,
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "auto auto auto",
+          columnGap: 40,
+          rowGap: 20,
+          padding: "20px 24px",
+          alignContent: "start",
+          minHeight: 0,
+        }}
+      >
+        {/* Business Reference No. */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            minWidth: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#6b7280",
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Business Reference No.
+          </span>
+
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            BIZ20260829000001
+          </span>
+        </div>
+
+        {/* Fee Code */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            minWidth: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#6b7280",
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Fee Code
+          </span>
+
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            1605
+          </span>
+        </div>
+
+        {/* Fee Type */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            minWidth: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#6b7280",
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Fee Type
+          </span>
+
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Domestic Transfer Fee - Corporate
+          </span>
+        </div>
+
+        {/* Empty cell */}
+        <div />
+
+        {/* Proposed Fee */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            minWidth: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#6b7280",
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Proposed Fee
+          </span>
+
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              color: "#e31e24",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            9.50 CNY
+          </span>
+        </div>
+
+        {/* Manual Adjustment */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            minWidth: 0,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 500,
+              fontFamily: "Inter",
+              color: "#6b7280",
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Manual Adjustment (CNY)
+          </span>
+
+          <BankInput value="9.5" onChange={() => {}} />
+        </div>
+      </div>
+
+      {/* Approved Fee */}
+      <div
+        style={{
+          flexShrink: 0,
+          width: "100%",
+          padding: "0 24px 16px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            minHeight: 76,
+            padding: "16px 18px",
+            backgroundColor: "#f0fdf4",
+            borderRadius: 6,
+            border: "1px solid #bbf7d0",
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              fontSize: 14,
+              fontWeight: 600,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              lineHeight: "21px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Approved Fee
+          </span>
+
+          <span
+            style={{
+              fontSize: 28,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              color: "#16a34a",
+              lineHeight: "42px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            9.50 CNY
+          </span>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          flexShrink: 0,
+          width: "100%",
+          minHeight: 30,
+          padding: "0 24px 12px",
+          boxSizing: "border-box",
+        }}
+      >
+        <span
+          style={{
+            fontSize: 12,
+            fontWeight: 400,
+            fontFamily: "Inter",
+            color: "#9ca3af",
+            lineHeight: "18px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Approved Fee is calculated from Manual Adjustment and will be used for
+          fee collection.
+        </span>
       </div>
     </div>
   );
