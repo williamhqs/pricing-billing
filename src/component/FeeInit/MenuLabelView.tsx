@@ -1,4 +1,4 @@
-export default function MenuLabelView() {
+export default function MenuLabelView({ title }: { title: String }) {
   return (
     <div
       style={{
@@ -27,7 +27,7 @@ export default function MenuLabelView() {
           whiteSpace: "nowrap",
         }}
       >
-        Domestic Transfer
+        {title}
       </span>
     </div>
   );

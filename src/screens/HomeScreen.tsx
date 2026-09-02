@@ -11,7 +11,7 @@ import ButtonsView from "../component/FeeInit/ButtonsView";
 import BannerView from "../component/FeeConfirmation/BannerView";
 import FeeConfirmationView from "../component/FeeConfirmation/FeeConfirmationView";
 import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
-import { TwoActionMenu } from "./TwoActionMenu";
+import { TwoActionMenu } from "../component/shared/TwoActionMenu";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -45,8 +45,8 @@ export default function HomeScreen() {
           />
         </div>
         {step === Step.Init && (
-          <div className="flex flex-col gap-2.5">
-            <MenuLabelView />
+          <div className="flex flex-col gap-2.5 w-full">
+            <MenuLabelView title={"Domestic Transfer"} />
             <PayerInformationView />
             <PayeeInformationView />
             <TransactionDetailsView />
