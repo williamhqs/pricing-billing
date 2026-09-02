@@ -49,14 +49,16 @@ export default function HomeScreen() {
           />
         </div>
         {step === Step.Init && (
-          <div className="flex flex-col gap-2.5 w-full">
+          <>
             <MenuLabelView title={"Domestic Transfer"} />
-            <PayerInformationView />
-            <PayeeInformationView />
-            <TransactionDetailsView />
-            <FeeInitEstimationView />
-            <ButtonsView onConfirm={() => setStep(Step.FeeConfirmation)} />
-          </div>
+            <div className="flex flex-col gap-3.5 w-full">
+              <PayerInformationView />
+              <PayeeInformationView />
+              <TransactionDetailsView />
+              <FeeInitEstimationView />
+              <ButtonsView onConfirm={() => setStep(Step.FeeConfirmation)} />
+            </div>
+          </>
         )}
 
         {step === Step.FeeConfirmation && (

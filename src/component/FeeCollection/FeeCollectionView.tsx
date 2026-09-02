@@ -1,24 +1,28 @@
 import MenuLabelView from "../FeeInit/MenuLabelView";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
 
-export default function FeeCollectionView({onFeeCollect}: {onFeeCollect: () => void}) {
+export default function FeeCollectionView({
+  onFeeCollect,
+}: {
+  onFeeCollect: () => void;
+}) {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
         gap: 0,
-        paddingTop: 16,
+        paddingTop: 0,
         paddingRight: 0,
         paddingBottom: 0,
         paddingLeft: 0,
         justifyContent: "flex-start",
         alignItems: "flex-start",
         width: "100%",
-        height: 843,
+        height: 863,
       }}
     >
-      <MenuLabelView title={"Fee Collection"}/>
+      <MenuLabelView title={"Fee Collection"} />
       <div
         style={{
           display: "flex",
@@ -451,6 +455,7 @@ export default function FeeCollectionView({onFeeCollect}: {onFeeCollect: () => v
           </div>
         </div>
       </div>
+
       <FeeCollectionAccountInfoView />
       <div
         style={{
