@@ -15,7 +15,6 @@ export default function QueryFeeReceivableView({
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const addFeeItem = () => {
-    console.log("this is query");
     const newItem: FeeReceivableItem = {
       numberID: `F-${Date.now()}`,
       name: "New Fee Item",
@@ -401,11 +400,12 @@ export default function QueryFeeReceivableView({
               justifyContent: "center",
               alignItems: "center",
               height: 40,
-              backgroundColor: "#d1d5db",
+              backgroundColor: selectedIds.length === 0 ? "#d1d5db" : "#e31e24",
               borderRadius: 4,
               border: "1px solid #d1d5db",
               overflow: "hidden",
             }}
+            disabled={selectedIds.length === 0}
             onClick={onProceed}
           >
             <span
