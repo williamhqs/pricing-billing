@@ -1,4 +1,38 @@
+import { useState } from "react";
+import FeeReceivableItem from "./FeeReceivableItem";
+
+interface FeeReceivableItem {
+  numberID: string;
+  name: string;
+  amount: string;
+  currency: string;
+  status: string;
+}
+
 export default function QueryFeeReceivableView() {
+  const [feeReceivableItems, setFeeReceivableItems] = useState<
+    FeeReceivableItem[]
+  >([]);
+
+  const addFeeItem = () => {
+    console.log("this is query");
+    const newItem: FeeReceivableItem = {
+      numberID: `F-${Date.now()}`,
+      name: "New Fee Item",
+      amount: "500.00",
+      currency: "SGD",
+      status: "Pending",
+    };
+
+    setFeeReceivableItems((prev) => [...prev, newItem]);
+  };
+
+  const removeFeeItem = (deleteNumberID: string) => {
+    setFeeReceivableItems((prev) =>
+      prev.filter((item) => item.numberID !== deleteNumberID),
+    );
+  };
+
   return (
     <div
       style={{
@@ -415,6 +449,7 @@ export default function QueryFeeReceivableView() {
                 </div>
               </div>
             </div>
+
             <div
               style={{
                 display: "flex",
@@ -447,6 +482,7 @@ export default function QueryFeeReceivableView() {
                   border: "1px solid #e31e24",
                   overflow: "hidden",
                 }}
+                onClick={() => addFeeItem()}
               >
                 <span
                   style={{
@@ -528,35 +564,39 @@ export default function QueryFeeReceivableView() {
                 Fee Receivable List
               </span>
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 60,
-                paddingRight: 44,
-                paddingBottom: 60,
-                paddingLeft: 44,
-                justifyContent: "flex-start",
-                alignItems: "center",
-                width: 1042,
-                height: 140,
-              }}
-            >
-              <span
+            {feeReceivableItems.length === 0 ? (
+              <div
                 style={{
-                  fontSize: 13,
-                  fontWeight: 400,
-                  fontFamily: "Inter",
-                  color: "#9ca3af",
-                  textAlign: "center",
-                  lineHeight: "19.5px",
-                  whiteSpace: "nowrap",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 0,
+                  paddingTop: 60,
+                  paddingRight: 44,
+                  paddingBottom: 60,
+                  paddingLeft: 44,
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  width: 1042,
+                  height: 140,
                 }}
               >
-                Please click 'Query' to retrieve fee receivable records.
-              </span>
-            </div>
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 400,
+                    fontFamily: "Inter",
+                    color: "#9ca3af",
+                    textAlign: "center",
+                    lineHeight: "19.5px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Please click 'Query' to retrieve fee receivable records.
+                </span>
+              </div>
+            ) : (
+              <FeeReceivableItem />
+            )}
           </div>
         </div>
         <div
@@ -591,6 +631,7 @@ export default function QueryFeeReceivableView() {
               border: "1px solid #d1d5db",
               overflow: "hidden",
             }}
+            onClick={() => {}}
           >
             <span
               style={{
