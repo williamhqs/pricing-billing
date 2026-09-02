@@ -16,6 +16,7 @@ import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
 import Overlay from "../component/shared/Overlay";
 import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
 import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
+import QueryFeeReceivableView from "../component/QueryFeeReceivable/QueryFeeReceivableView";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -35,6 +36,14 @@ export default function HomeScreen() {
                 onClick: () => {
                   setselectedMenuKey("TransferInitiation");
                   setStep(Step.Init);
+                },
+              },
+              {
+                key: "QueryFeeReceivable",
+                label: "Query Fee Receivable",
+                onClick: () => {
+                  setselectedMenuKey("QueryFeeReceivable");
+                  setStep(Step.QueryFeeReceivable);
                 },
               },
               {
@@ -85,6 +94,8 @@ export default function HomeScreen() {
             onDone={() => setStep(Step.FeeCollectionProcessComplete)}
           />
         </Overlay>
+
+        {step === Step.QueryFeeReceivable && <QueryFeeReceivableView />}
 
         {step === Step.FeeCollectionProcessComplete && (
           <FeeCollectionProcessComplete />
