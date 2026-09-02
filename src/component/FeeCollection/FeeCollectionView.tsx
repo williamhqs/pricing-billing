@@ -1,3 +1,4 @@
+import MenuLabelView from "../FeeInit/MenuLabelView";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
 
 export default function FeeCollectionView() {
@@ -13,10 +14,11 @@ export default function FeeCollectionView() {
         paddingLeft: 0,
         justifyContent: "flex-start",
         alignItems: "flex-start",
-        width: 1044,
+        width: "100%",
         height: 843,
       }}
     >
+      <MenuLabelView title={"Fee Collection"}/>
       <div
         style={{
           display: "flex",
