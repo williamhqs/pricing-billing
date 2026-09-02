@@ -1,13 +1,8 @@
 import { useState } from "react";
-import FeeReceivableItem from "./FeeReceivableItem";
-
-interface FeeReceivableItem {
-  numberID: string;
-  name: string;
-  amount: string;
-  currency: string;
-  status: string;
-}
+import SelectedFeeItemsView from "./SelectedFeeItemsView";
+import { FeeReceivableTableRowView } from "./FeeReceivableTableRowView";
+import { FeeReceivableTableHeaderView } from "./FeeReceivableTableHeaderView";
+import type { FeeReceivableItem } from "../../types/types";
 
 export default function QueryFeeReceivableView() {
   const [feeReceivableItems, setFeeReceivableItems] = useState<
@@ -154,7 +149,6 @@ export default function QueryFeeReceivableView() {
           justifyContent: "flex-start",
           alignItems: "flex-start",
           width: 1044,
-          height: 457.5,
         }}
       >
         <div
@@ -234,10 +228,10 @@ export default function QueryFeeReceivableView() {
                 </span>
               </div>
               <button
-                className="flex flex-row gap-2 px-[22px] h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
+                className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
                 onClick={addFeeItem}
               >
-                <span className="text-sm font-semibold font-Inter text-white text-center leading-[21px]">
+                <span className="text-sm font-semibold font-Inter text-white text-center leading-5.25">
                   Query
                 </span>
               </button>
@@ -270,7 +264,6 @@ export default function QueryFeeReceivableView() {
               justifyContent: "flex-start",
               alignItems: "flex-start",
               width: "100%",
-              height: 187.5,
               backgroundColor: "#ffffff",
               borderRadius: 6,
               border: "1px solid #e5e7eb",
@@ -338,7 +331,14 @@ export default function QueryFeeReceivableView() {
                 </span>
               </div>
             ) : (
-              <FeeReceivableItem />
+              <div className="px-8 pt-5 mb-5">
+                <SelectedFeeItemsView />
+
+                <FeeReceivableTableHeaderView />
+                {feeReceivableItems.map((item) => (
+                  <FeeReceivableTableRowView item={item} />
+                ))}
+              </div>
             )}
           </div>
         </div>
