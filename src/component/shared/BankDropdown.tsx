@@ -18,7 +18,7 @@ const BankDropdown: React.FC<DropdownProps> = ({
   options,
   value,
   onChange,
-  placeholder = "请选择",
+  placeholder = "Please select an currency",
   width = 280,
 }) => {
   const [open, setOpen] = useState(false);
@@ -27,7 +27,6 @@ const BankDropdown: React.FC<DropdownProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const selectedItem = options.find((opt) => opt.value === value);
 
-  // 点击空白关闭
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -41,7 +40,6 @@ const BankDropdown: React.FC<DropdownProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 打开时获取触发器位置，给portal弹窗定位
   useEffect(() => {
     if (open && triggerRef.current) {
       setDropdownRect(triggerRef.current.getBoundingClientRect());
@@ -55,7 +53,6 @@ const BankDropdown: React.FC<DropdownProps> = ({
 
   return (
     <div ref={containerRef} className="relative" style={{ width }}>
-      {/* 触发器 */}
       <div
         ref={triggerRef}
         onClick={() => setOpen(!open)}
@@ -64,7 +61,6 @@ const BankDropdown: React.FC<DropdownProps> = ({
         <span className={selectedItem ? "text-slate-800" : "text-gray-400"}>
           {selectedItem?.label ?? placeholder}
         </span>
-        {/* 箭头 */}
         <div
           style={{
             width: 0,
@@ -78,7 +74,6 @@ const BankDropdown: React.FC<DropdownProps> = ({
         />
       </div>
 
-      {/* Portal：下拉面板挂载到body，不受父overflow限制 */}
       {open &&
         dropdownRect &&
         createPortal(

@@ -1,7 +1,23 @@
 import BankDropdown from "../shared/BankDropdown";
 import { BankInput } from "../shared/BankInput";
 
-export default function TransactionDetailsView() {
+interface TransactionDetailsViewProps {
+  amount: string;
+  currency: string;
+  remark: string;
+  onAmountChange: (value: string) => void;
+  onCurrencyChange: (value: string) => void;
+  onRemarkChange: (value: string) => void;
+}
+
+export default function TransactionDetailsView({
+  amount,
+  currency,
+  remark,
+  onAmountChange,
+  onCurrencyChange,
+  onRemarkChange,
+}: TransactionDetailsViewProps) {
   return (
     <div
       style={{
@@ -104,8 +120,8 @@ export default function TransactionDetailsView() {
             </span>
           </div>
           <BankInput
-            value=""
-            onChange={() => {}}
+            value={amount}
+            onChange={onAmountChange}
             placeholder="Please input transaction amount No."
           />
         </div>
@@ -156,13 +172,13 @@ export default function TransactionDetailsView() {
           </div>
           <BankDropdown
             width={280}
-            value="cny"
+            value={currency}
             options={[
               { label: "CNY", value: "cny" },
               { label: "USD", value: "usd" },
               { label: "SGD", value: "sgd" },
             ]}
-            onChange={() => {}}
+            onChange={onCurrencyChange}
           />
         </div>
         <div
@@ -211,8 +227,8 @@ export default function TransactionDetailsView() {
             </span>
           </div>
           <BankInput
-            value=""
-            onChange={() => {}}
+            value={remark}
+            onChange={onRemarkChange}
             placeholder="Please input remarks"
           />
         </div>

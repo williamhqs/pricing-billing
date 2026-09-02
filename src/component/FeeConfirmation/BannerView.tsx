@@ -1,4 +1,10 @@
-export default function BannerView() {
+export default function BannerView({
+  bizSnglNo,
+}: {
+  bizSnglNo?: string;
+}) {
+  const refNo = bizSnglNo ?? "BIZ20260901226302";
+
   return (
     <div
       style={{
@@ -30,7 +36,7 @@ export default function BannerView() {
           whiteSpace: "nowrap",
         }}
       >
-        Fee calculation completed. Business Reference No.: BIZ20260901226302
+        Fee calculation completed. Business Reference No.: {refNo}
       </span>
     </div>
   );

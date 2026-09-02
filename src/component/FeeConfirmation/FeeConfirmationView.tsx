@@ -1,10 +1,25 @@
+import type { FeeCalculationResult } from "../../types/api";
+
 export default function FeeConfirmationView({
+  feeResult,
   onConfirm,
   onAdjustment,
 }: {
+  feeResult: FeeCalculationResult | null;
   onConfirm: () => void;
   onAdjustment: () => void;
 }) {
+  const bizSnglNo = feeResult?.bizSnglNo ?? "BIZ20260901226302";
+  const feeCode = feeResult?.feeCode ?? "1605";
+  const feeType = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
+  const baseFee = feeResult
+    ? `${feeResult.baseFee} ${feeResult.currency}`
+    : "10.00 CNY";
+  const discount = feeResult
+    ? `${feeResult.discount} ${feeResult.currency}`
+    : "0.50 CNY";
+  const proposedFee = feeResult?.proposedFee ?? "9.50 CNY";
+
   return (
     <div
       style={{
@@ -148,7 +163,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                BIZ20260901226302
+                {bizSnglNo}
               </span>
             </div>
           </div>
@@ -223,7 +238,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                1605
+                {feeCode}
               </span>
             </div>
           </div>
@@ -298,7 +313,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                Domestic Transfer Fee - Corporate
+                {feeType}
               </span>
             </div>
           </div>
@@ -373,7 +388,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                10.00 CNY
+                {baseFee}
               </span>
             </div>
           </div>
@@ -448,7 +463,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                0.50 CNY
+                {discount}
               </span>
             </div>
           </div>
@@ -536,7 +551,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                9.50 CNY
+                {proposedFee}
               </span>
             </div>
           </div>

@@ -1,6 +1,14 @@
 import { BankInput } from "../shared/BankInput";
 
-export default function PayerInformationView() {
+interface PayerInformationViewProps {
+  accountNo: string;
+  onAccountNoChange: (value: string) => void;
+}
+
+export default function PayerInformationView({
+  accountNo,
+  onAccountNoChange,
+}: PayerInformationViewProps) {
   return (
     <div
       style={{
@@ -104,8 +112,8 @@ export default function PayerInformationView() {
             </span>
           </div>
           <BankInput
-            value=""
-            onChange={() => {}}
+            value={accountNo}
+            onChange={onAccountNoChange}
             placeholder="Please input account No."
           />
         </div>

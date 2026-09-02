@@ -1,6 +1,69 @@
+import { useCallback, useState } from "react";
 import { BankInput } from "../shared/BankInput";
+import type { FeeCalculationResult } from "../../types/api";
+import { bizAssetSync } from "../../api/bizAssetSync";
+import { ApiError } from "../../api/calcFeeRegDtl";
 
-export default function FeeAdjustmentView() {
+interface FeeAdjustmentViewProps {
+  feeResult: FeeCalculationResult | null;
+  custNo: string;
+  custName: string;
+  onApproved: () => void;
+}
+
+export default function FeeAdjustmentView({
+  feeResult,
+  custNo,
+  custName,
+  onApproved,
+}: FeeAdjustmentViewProps) {
+  const bizSnglNo = feeResult?.bizSnglNo ?? "BIZ20260829000001";
+  const feeCode = feeResult?.feeCode ?? "1605";
+  const feeType = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
+  const proposedFee = feeResult?.proposedFee ?? "9.50 CNY";
+  const currency = feeResult?.currency ?? "CNY";
+
+  const initialAmt = feeResult
+    ? String(feeResult.proposedFee.split(" ")[0])
+    : "9.50";
+  const [manualAmt, setManualAmt] = useState(initialAmt);
+  // approvalOpinion 预留，等页面添加 adjustment reason 输入框后启用
+  const [approvalReason] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const approvedFee = `${manualAmt} ${currency}`;
+
+  const handleApprove = useCallback(async () => {
+    const amt = Number(manualAmt);
+    if (Number.isNaN(amt) || amt <= 0) {
+      setError("Manual Adjustment must be a positive number");
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      await bizAssetSync({
+        bizSnglNo,
+        custNo,
+        custName,
+        feeNo: feeCode,
+        feeNm: feeType,
+        actlRecvAmt: amt,
+        approvalOpinion: approvalReason,
+      });
+      onApproved();
+    } catch (err: unknown) {
+      const message =
+        err instanceof ApiError
+          ? err.message
+          : "An unexpected error occurred, please try again";
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+  }, [bizSnglNo, custNo, custName, feeCode, feeType, manualAmt, approvalReason, onApproved]);
+
   return (
     <div
       style={{
@@ -311,7 +374,7 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      BIZ20260829000001
+                      {bizSnglNo}
                     </span>
                   </div>
                 </div>
@@ -385,7 +448,7 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      1605
+                      {feeCode}
                     </span>
                   </div>
                 </div>
@@ -459,7 +522,7 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      Domestic Transfer Fee - Corporate
+                      {feeType}
                     </span>
                   </div>
                 </div>
@@ -533,7 +596,7 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      9.50 CNY
+                      {proposedFee}
                     </span>
                   </div>
                 </div>
@@ -579,10 +642,10 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      Manual Adjustment (CNY)
+                      Manual Adjustment ({currency})
                     </span>
                   </div>
-                  <BankInput value="9.5" onChange={() => {}} />
+                  <BankInput type="number" step="0.1" value={manualAmt} onChange={setManualAmt} />
                 </div>
               </div>
               <div
@@ -590,7 +653,7 @@ export default function FeeAdjustmentView() {
                   display: "flex",
                   flexDirection: "column",
                   gap: 0,
-                  paddingTop: 16,
+                  paddingTop: 200,
                   paddingRight: 0,
                   paddingBottom: 0,
                   paddingLeft: 0,
@@ -668,7 +731,7 @@ export default function FeeAdjustmentView() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      9.50 CNY
+                      {approvedFee}
                     </span>
                   </div>
                 </div>
@@ -706,6 +769,23 @@ export default function FeeAdjustmentView() {
             </div>
           </div>
         </div>
+        {error && (
+          <div
+            style={{
+              padding: "10px 16px",
+              marginTop: 8,
+              backgroundColor: "#fef2f2",
+              border: "1px solid #fecaca",
+              borderRadius: 6,
+              color: "#dc2626",
+              fontSize: 13,
+              fontFamily: "Inter",
+              width: "100%",
+            }}
+          >
+            {error}
+          </div>
+        )}
         <div
           style={{
             display: "flex",
@@ -770,6 +850,8 @@ export default function FeeAdjustmentView() {
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            onClick={handleApprove}
+            disabled={loading}
           >
             <span
               style={{
@@ -782,7 +864,7 @@ export default function FeeAdjustmentView() {
                 whiteSpace: "nowrap",
               }}
             >
-              Approve & Continue
+              {loading ? "Submitting..." : "Approve & Continue"}
             </span>
           </button>
         </div>

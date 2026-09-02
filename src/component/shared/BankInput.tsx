@@ -4,6 +4,8 @@ interface InputProps {
   placeholder?: string;
   width?: number | string;
   height?: number;
+  type?: string;
+  step?: string;
 }
 
 export const BankInput: React.FC<InputProps> = ({
@@ -12,10 +14,13 @@ export const BankInput: React.FC<InputProps> = ({
   placeholder = "",
   width = 280,
   height = 36,
+  type = "text",
+  step,
 }) => {
   return (
     <input
-      type="text"
+      type={type}
+      step={step}
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}

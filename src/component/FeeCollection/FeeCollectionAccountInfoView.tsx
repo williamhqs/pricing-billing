@@ -109,7 +109,7 @@ export default function FeeCollectionAccountInfoView() {
               </span>
 
               <BankDropdown
-                width={280}
+                width={350}
                 value="3"
                 options={[
                   {
