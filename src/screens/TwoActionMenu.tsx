@@ -1,5 +1,4 @@
 // @shared/TwoActionMenu.tsx
-import React from "react";
 
 interface MenuItem {
   key: string;
@@ -14,34 +13,69 @@ interface TwoActionMenuProps {
 
 export function TwoActionMenu({ items, activeKey }: TwoActionMenuProps) {
   return (
-    <div
+    <nav
       style={{
         display: "flex",
-        gap: 12,
-        alignItems: "center",
+        alignItems: "stretch",
+        height: 64,
+        borderBottom: "1px solid #e5e7eb",
+        backgroundColor: "#fff",
       }}
     >
       {items.map((item) => {
         const isActive = activeKey === item.key;
+
         return (
           <button
             key={item.key}
             onClick={item.onClick}
             style={{
-              padding: "8px 16px",
-              border: isActive ? "2px solid #1a2a4a" : "1px solid #e5e7eb",
-              borderRadius: 6,
-              background: isActive ? "#eff6ff" : "#fff",
-              fontFamily: "Inter",
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+
+              padding: "0 24px",
+
+              border: "none",
+              background: "transparent",
+
+              fontFamily: "Inter, sans-serif",
+              fontSize: 15,
+              fontWeight: isActive ? 600 : 500,
+
+              color: isActive ? "#002D62" : "#333",
+
               cursor: "pointer",
-              color: isActive ? "#1a2a4a" : "#333",
-              fontWeight: isActive ? 500 : 400,
+
+              transition: "color 0.2s ease, background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.backgroundColor = "#f7f8fa";
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
             }}
           >
             {item.label}
+
+            {isActive && (
+              <span
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: 3,
+                  backgroundColor: "#E31837",
+                }}
+              />
+            )}
           </button>
         );
       })}
-    </div>
+    </nav>
   );
 }

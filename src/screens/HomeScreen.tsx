@@ -58,7 +58,10 @@ export default function HomeScreen() {
           <>
             <BannerView />
             <FeeConfirmationView
-              onConfirm={() => setStep(Step.FeeCollection)}
+              onConfirm={() => {
+                setselectedMenuKey("FeeCollection");
+                setStep(Step.FeeCollection);
+              }}
             />
           </>
         )}
