@@ -206,295 +206,38 @@ export default function QueryFeeReceivableView() {
               Query Criteria
             </span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 20,
-              paddingRight: 24,
-              paddingBottom: 20,
-              paddingLeft: 24,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "100%",
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 0,
-                  top: 0,
-                  width: "100%",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#6b7280",
-                      textAlign: "left",
-                      lineHeight: "18px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    Business Reference No.
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#1a2a4a",
-                      textAlign: "left",
-                      lineHeight: "21px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    BIZ20260829000001
-                  </span>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 339.3280334472656,
-                  top: 0,
-                  width: "100%",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#6b7280",
-                      textAlign: "left",
-                      lineHeight: "18px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    Customer No.
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#1a2a4a",
-                      textAlign: "left",
-                      lineHeight: "21px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    20260330000002
-                  </span>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 6,
-                  paddingTop: 0,
-                  paddingRight: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  justifyContent: "flex-start",
-                  alignItems: "flex-start",
-                  position: "absolute",
-                  left: 678.6640625,
-                  top: 0,
-                  width: "100%",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#6b7280",
-                      textAlign: "left",
-                      lineHeight: "18px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    Customer Account No.
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    paddingTop: 0,
-                    paddingRight: 0,
-                    paddingBottom: 0,
-                    paddingLeft: 0,
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500,
-                      fontFamily: "Inter",
-                      color: "#1a2a4a",
-                      textAlign: "left",
-                      lineHeight: "21px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    622200000000000000
-                  </span>
-                </div>
-              </div>
-            </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 12,
-                paddingTop: 8,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-end",
-                alignItems: "flex-start",
-                width: 994,
-                height: 48,
-              }}
-            >
+          <div className="flex flex-col gap-5 p-5 w-full items-start">
+            <div className="flex flex-row justify-between w-full items-start">
+              <div className="flex flex-col gap-1.5 whitespace-nowrap">
+                <span className="text-xs font-medium font-Inter text-gray-500">
+                  Business Reference No.
+                </span>
+                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
+                  BIZ20260829000001
+                </span>
+              </div>
+              <div className="flex flex-col gap-1.5 whitespace-nowrap">
+                <span className="text-xs font-medium font-Inter text-gray-500">
+                  Customer No.
+                </span>
+                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
+                  20260330000002
+                </span>
+              </div>
+              <div className="flex flex-col gap-1.5 whitespace-nowrap">
+                <span className="text-xs font-medium font-Inter text-gray-500">
+                  Customer Account No.
+                </span>
+                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
+                  622200000000000000
+                </span>
+              </div>
               <button
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  gap: 8,
-                  paddingTop: 0,
-                  paddingRight: 22,
-                  paddingBottom: 0,
-                  paddingLeft: 22,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: 40,
-                  backgroundColor: "#e31e24",
-                  borderRadius: 4,
-                  border: "1px solid #e31e24",
-                  overflow: "hidden",
-                }}
-                onClick={() => addFeeItem()}
+                className="flex flex-row gap-2 px-[22px] h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
+                onClick={addFeeItem}
               >
-                <span
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    fontFamily: "Inter",
-                    color: "#ffffff",
-                    textAlign: "center",
-                    lineHeight: "21px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span className="text-sm font-semibold font-Inter text-white text-center leading-[21px]">
                   Query
                 </span>
               </button>
