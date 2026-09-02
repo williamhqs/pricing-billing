@@ -4,10 +4,15 @@ import { FeeReceivableTableRowView } from "./FeeReceivableTableRowView";
 import { FeeReceivableTableHeaderView } from "./FeeReceivableTableHeaderView";
 import type { FeeReceivableItem } from "../../types/types";
 
-export default function QueryFeeReceivableView() {
+export default function QueryFeeReceivableView({
+  onProceed,
+}: {
+  onProceed: () => void;
+}) {
   const [feeReceivableItems, setFeeReceivableItems] = useState<
     FeeReceivableItem[]
   >([]);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const addFeeItem = () => {
     console.log("this is query");
@@ -26,6 +31,25 @@ export default function QueryFeeReceivableView() {
     setFeeReceivableItems((prev) =>
       prev.filter((item) => item.numberID !== deleteNumberID),
     );
+  };
+
+  const isAllSelected =
+    feeReceivableItems.length > 0 &&
+    selectedIds.length === feeReceivableItems.length;
+  const handleHeaderSelectAll = () => {
+    if (isAllSelected) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(feeReceivableItems.map((item) => item.numberID));
+    }
+  };
+
+  const handleRowCheckChange = (id: string, checked: boolean) => {
+    if (checked) {
+      setSelectedIds((prev) => [...prev, id]);
+    } else {
+      setSelectedIds((prev) => prev.filter((x) => x !== id));
+    }
   };
 
   return (
@@ -334,9 +358,17 @@ export default function QueryFeeReceivableView() {
               <div className="px-8 pt-5 mb-5">
                 <SelectedFeeItemsView />
 
-                <FeeReceivableTableHeaderView />
+                <FeeReceivableTableHeaderView
+                  checkedAll={isAllSelected}
+                  onSelectAll={handleHeaderSelectAll}
+                />
                 {feeReceivableItems.map((item) => (
-                  <FeeReceivableTableRowView item={item} />
+                  <FeeReceivableTableRowView
+                    key={item.numberID}
+                    item={item}
+                    checked={selectedIds.includes(item.numberID)}
+                    onChange={(chk) => handleRowCheckChange(item.numberID, chk)}
+                  />
                 ))}
               </div>
             )}
@@ -374,7 +406,7 @@ export default function QueryFeeReceivableView() {
               border: "1px solid #d1d5db",
               overflow: "hidden",
             }}
-            onClick={() => {}}
+            onClick={onProceed}
           >
             <span
               style={{

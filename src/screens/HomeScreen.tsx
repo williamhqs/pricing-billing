@@ -95,7 +95,14 @@ export default function HomeScreen() {
           />
         </Overlay>
 
-        {step === Step.QueryFeeReceivable && <QueryFeeReceivableView />}
+        {step === Step.QueryFeeReceivable && (
+          <QueryFeeReceivableView
+            onProceed={() => {
+              setselectedMenuKey("FeeCollection");
+              setStep(Step.FeeCollection);
+            }}
+          />
+        )}
 
         {step === Step.FeeCollectionProcessComplete && (
           <FeeCollectionProcessComplete />
