@@ -1,7 +1,7 @@
 import MenuLabelView from "../FeeInit/MenuLabelView";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
 
-export default function FeeCollectionView() {
+export default function FeeCollectionView({onFeeCollect}: {onFeeCollect: () => void}) {
   return (
     <div
       style={{
@@ -581,6 +581,7 @@ export default function FeeCollectionView() {
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            onClick={onFeeCollect}
           >
             <span
               style={{
