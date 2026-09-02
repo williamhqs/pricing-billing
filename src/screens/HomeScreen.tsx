@@ -13,6 +13,9 @@ import FeeConfirmationView from "../component/FeeConfirmation/FeeConfirmationVie
 import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
 import { TwoActionMenu } from "../component/shared/TwoActionMenu";
 import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
+import Overlay from "../component/shared/Overlay";
+import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
+import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -69,7 +72,21 @@ export default function HomeScreen() {
           </>
         )}
         {step === Step.FeeAdjustment && <FeeAdjustmentView />}
-        {step === Step.FeeCollection && <FeeCollectionView />}
+        {step === Step.FeeCollection && (
+          <FeeCollectionView
+            onFeeCollect={() => setStep(Step.FeeCollectionResult)}
+          />
+        )}
+
+        <Overlay visible={step === Step.FeeCollectionResult}>
+          <FeeCollectionResultView
+            onDone={() => setStep(Step.FeeCollectionProcessComplete)}
+          />
+        </Overlay>
+
+        {step === Step.FeeCollectionProcessComplete && (
+          <FeeCollectionProcessComplete />
+        )}
       </div>
     </>
   );
