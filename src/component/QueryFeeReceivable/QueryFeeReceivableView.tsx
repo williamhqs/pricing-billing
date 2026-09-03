@@ -3,6 +3,7 @@ import SelectedFeeItemsView from "./SelectedFeeItemsView";
 import { FeeReceivableTableRowView } from "./FeeReceivableTableRowView";
 import { FeeReceivableTableHeaderView } from "./FeeReceivableTableHeaderView";
 import type { FeeReceivableItem } from "../../types/types";
+import { BankInput } from "../shared/BankInput";
 
 export default function QueryFeeReceivableView({
   onProceed,
@@ -230,25 +231,31 @@ export default function QueryFeeReceivableView({
                 <span className="text-xs font-medium font-Inter text-gray-500">
                   Business Reference No.
                 </span>
-                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
-                  BIZ20260829000001
-                </span>
+                <BankInput
+                  style={{ fontSize: 14, fontWeight: 500 }}
+                  value={"BIZ20260829000001"}
+                  onChange={() => {}}
+                />
               </div>
               <div className="flex flex-col gap-1.5 whitespace-nowrap">
                 <span className="text-xs font-medium font-Inter text-gray-500">
                   Customer No.
                 </span>
-                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
-                  20260330000002
-                </span>
+                <BankInput
+                  style={{ fontSize: 14, fontWeight: 500 }}
+                  value={"20260330000002"}
+                  onChange={() => {}}
+                />
               </div>
               <div className="flex flex-col gap-1.5 whitespace-nowrap">
                 <span className="text-xs font-medium font-Inter text-gray-500">
                   Customer Account No.
                 </span>
-                <span className="text-sm font-medium font-Inter text-[#1a2a4a]">
-                  622200000000000000
-                </span>
+                <BankInput
+                  style={{ fontSize: 14, fontWeight: 500 }}
+                  value={"622200000000000000"}
+                  onChange={() => {}}
+                />
               </div>
               <button
                 className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
