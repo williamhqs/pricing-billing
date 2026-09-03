@@ -13,16 +13,20 @@ export default function QueryFeeReceivableView({
 }: {
   onProceed: (amountReceivable?: string) => void;
 }) {
-  const [feeReceivableItems, setFeeReceivableItems] = useState<FeeReceivableItem[]>([]);
+  const [feeReceivableItems, setFeeReceivableItems] = useState<
+    FeeReceivableItem[]
+  >([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalAmount, setTotalAmount] = useState("0.00");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [businessReferenceNo, setBusinessReferenceNo] = useState("biz1788344039912");
+  const [businessReferenceNo, setBusinessReferenceNo] =
+    useState("biz1788344039912");
   const [customerNo, setCustomerNo] = useState("20260330000002");
-  const [customerAccountNo, setCustomerAccountNo] = useState("622200000000000000");
+  const [customerAccountNo, setCustomerAccountNo] =
+    useState("622200000000000000");
 
   const handleQuery = useCallback(async () => {
     const bizSnglNo = businessReferenceNo.trim() || undefined;
@@ -40,10 +44,15 @@ export default function QueryFeeReceivableView({
     setSelectedIds([]);
 
     try {
-      const result = await queryApprovalResult({ bizSnglNo, custNo, custAcctNo });
+      const result = await queryApprovalResult({
+        bizSnglNo,
+        custNo,
+        custAcctNo,
+      });
 
       const items: FeeReceivableItem[] = result.data.map((item) => {
-        const status = ProcessStatusLabel[item.processStatus] ?? item.processStatus;
+        const status =
+          ProcessStatusLabel[item.processStatus] ?? item.processStatus;
         return {
           numberID: item.jsonData.feeNo,
           name: item.jsonData.feeNm || "Domestic Transfer Fee - Corporate",
@@ -305,7 +314,19 @@ export default function QueryFeeReceivableView({
           </div>
         </div>
         {error && (
-          <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+          <div
+            style={{
+              padding: "10px 16px",
+              marginTop: 8,
+              backgroundColor: "#fef2f2",
+              border: "1px solid #fecaca",
+              borderRadius: 6,
+              color: "#dc2626",
+              fontSize: 13,
+              fontFamily: "Inter",
+              width: "100%",
+            }}
+          >
             {error}
           </div>
         )}
@@ -459,7 +480,7 @@ export default function QueryFeeReceivableView({
             disabled={selectedIds.length === 0}
             onClick={() => {
               const selectedItems = feeReceivableItems.filter((item) =>
-                selectedIds.includes(item.numberID)
+                selectedIds.includes(item.numberID),
               );
               const total = selectedItems
                 .reduce((sum, item) => sum + Number(item.amount), 0)

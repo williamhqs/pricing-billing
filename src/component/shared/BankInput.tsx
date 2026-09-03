@@ -43,6 +43,7 @@ export const BankInput: React.FC<InputProps> = ({
       placeholder={placeholder}
       style={{ ...defaultStyle, ...style }}
       className={className ?? ""}
+      onClick={(e) => e.stopPropagation()}
     />
   );
 };
