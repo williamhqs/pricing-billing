@@ -7,6 +7,7 @@ import type {
 } from "../../types/api";
 import { gthrAfterFee } from "../../api/gthrAfterFee";
 import { ApiError } from "../../api/calcFeeRegDtl";
+import BankLabelValue from "../shared/BankLabelValue";
 
 interface FeeCollectionViewProps {
   feeResult: FeeCalculationResult | null;
@@ -100,6 +101,7 @@ export default function FeeCollectionView({
           overflow: "visible",
         }}
       >
+        {/* Header */}
         <div
           style={{
             display: "flex",
@@ -129,387 +131,52 @@ export default function FeeCollectionView({
             Fee to Collect
           </span>
         </div>
+
+        {/* 主体区域：Grid，复用BankLabelValue */}
         <div
           style={{
             width: "100%",
-            position: "relative",
+            padding: "20px 24px",
+            display: "grid",
+            gridTemplateColumns: "513px 1fr",
+            rowGap: "62px",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              position: "absolute",
-              left: 24,
-              top: 20,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
+          <BankLabelValue label="Business Reference No." value={bizSnglNo} />
+          <BankLabelValue label="Fee No." value={feeNo} />
+          <BankLabelValue label="Fee Name" value={feeName} />
+
+          {/* Amount Receivable 单独写，保留红色加粗 */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            <span
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
+                fontSize: 12,
+                fontWeight: 500,
+                fontFamily: "Inter",
+                color: "#6b7280",
+                textAlign: "left",
+                lineHeight: "18px",
+                whiteSpace: "nowrap",
               }}
             >
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#6b7280",
-                  textAlign: "left",
-                  lineHeight: "18px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Business Reference No.
-              </span>
-            </div>
-            <div
+              Amount Receivable
+            </span>
+            <span
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
+                fontSize: 14,
+                fontWeight: 700,
+                fontFamily: "Inter",
+                color: "#e31e24",
+                textAlign: "left",
+                lineHeight: "21px",
+                whiteSpace: "nowrap",
               }}
             >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#1a2a4a",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {bizSnglNo}
-              </span>
-            </div>
+              {displayAmountWithCurrency}
+            </span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              position: "absolute",
-              left: 537,
-              top: 20,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#6b7280",
-                  textAlign: "left",
-                  lineHeight: "18px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Fee No.
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#1a2a4a",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {feeNo}
-              </span>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              position: "absolute",
-              left: 24,
-              top: 82,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#6b7280",
-                  textAlign: "left",
-                  lineHeight: "18px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Fee Name
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#1a2a4a",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {feeName}
-              </span>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              position: "absolute",
-              left: 24,
-              top: 144,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#6b7280",
-                  textAlign: "left",
-                  lineHeight: "18px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Amount Receivable
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 700,
-                  fontFamily: "Inter",
-                  color: "#e31e24",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {displayAmountWithCurrency}
-              </span>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              position: "absolute",
-              left: 537,
-              top: 144,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#6b7280",
-                  textAlign: "left",
-                  lineHeight: "18px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Currency
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0,
-                paddingTop: 0,
-                paddingRight: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: "Inter",
-                  color: "#1a2a4a",
-                  textAlign: "left",
-                  lineHeight: "21px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {currency}
-              </span>
-            </div>
-          </div>
+
+          <BankLabelValue label="Currency" value={currency} />
         </div>
       </div>
 

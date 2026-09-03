@@ -29,7 +29,7 @@ export function FeeReceivableTableHeaderView({
             height: 16,
             backgroundColor: checkedAll ? "#e31e24" : "#ffffff",
             borderRadius: 2,
-            border: "1px solid #767676",
+            border: checkedAll ? "" : "1px solid #767676",
             overflow: "hidden",
             cursor: "pointer",
             display: "flex",
