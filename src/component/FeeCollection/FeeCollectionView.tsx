@@ -660,16 +660,7 @@ export default function FeeCollectionView({
               overflow: "hidden",
             }}
             className="hover:bg-[#C4181E] bg-[#e31e24]"
-            onClick={() => {
-              const mockFeeCollectionResultFailed: FeeCollectionResult = {
-                bizSnglNo: "BIZ202609030002",
-                feeCollected: "1250.00",
-                collectionMethod: "ACCOUNT_DEDUCT",
-                collectionTime: "2026-09-03 14:31:00",
-                status: "FAIL",
-              };
-              onFeeCollect(mockFeeCollectionResultFailed);
-            }}
+            onClick={handleConfirmCollection}
             disabled={loading}
           >
             <span
