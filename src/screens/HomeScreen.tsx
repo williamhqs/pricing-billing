@@ -1,6 +1,10 @@
 import { useCallback, useState } from "react";
 import { Step } from "../types/types";
-import type { FeeCalculationResult, FeeCollectionResult, TransferFormData } from "../types/api";
+import type {
+  FeeCalculationResult,
+  FeeCollectionResult,
+  TransferFormData,
+} from "../types/api";
 import { calcFeeRegDtl, ApiError } from "../api/calcFeeRegDtl";
 import { bizAssetSync } from "../api/bizAssetSync";
 import TopBarView from "../component/FeeInit/TopBarView";
@@ -18,8 +22,9 @@ import { TwoActionMenu } from "../component/shared/TwoActionMenu";
 import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
 import Overlay from "../component/shared/Overlay";
 import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
-import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
 import QueryFeeReceivableView from "../component/QueryFeeReceivable/QueryFeeReceivableView";
+import FeeCollectionResultView1 from "../component/FeeCollection/FeeCollectionResultView1";
+import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -36,13 +41,19 @@ export default function HomeScreen() {
   const [feeResult, setFeeResult] = useState<FeeCalculationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [collectionResult, setCollectionResult] = useState<FeeCollectionResult | null>(null);
-  const [amountReceivable, setAmountReceivable] = useState<string | undefined>(undefined);
+  const [collectionResult, setCollectionResult] =
+    useState<FeeCollectionResult | null>(null);
+  const [amountReceivable, setAmountReceivable] = useState<string | undefined>(
+    undefined,
+  );
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
 
   const updateField = useCallback(
-    <K extends keyof TransferFormData>(field: K, value: TransferFormData[K]) => {
+    <K extends keyof TransferFormData>(
+      field: K,
+      value: TransferFormData[K],
+    ) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
     },
     [],
@@ -107,7 +118,10 @@ export default function HomeScreen() {
               {
                 key: "TransferInitiation",
                 label: "Transfer Initiation",
-                onClick: () => { setselectedMenuKey("TransferInitiation"); setStep(Step.Init); },
+                onClick: () => {
+                  setselectedMenuKey("TransferInitiation");
+                  setStep(Step.Init);
+                },
               },
               {
                 key: "QueryFeeReceivable",
@@ -120,7 +134,10 @@ export default function HomeScreen() {
               {
                 key: "FeeCollection",
                 label: "Fee Collection",
-                onClick: () => { setselectedMenuKey("FeeCollection"); setStep(Step.FeeCollection); },
+                onClick: () => {
+                  setselectedMenuKey("FeeCollection");
+                  setStep(Step.FeeCollection);
+                },
               },
             ]}
           />
@@ -132,6 +149,15 @@ export default function HomeScreen() {
               <PayerInformationView
                 accountNo={formData.payerAccountNo}
                 onAccountNoChange={(v) => updateField("payerAccountNo", v)}
+                onFillMockDataByClick={() =>
+                  setFormData({
+                    payerAccountNo: "622200000000000000",
+                    payeeAccountNo: "6217003829165047281",
+                    transactionAmount: "20000.00",
+                    currency: "cny",
+                    remark: "Goods payment",
+                  })
+                }
               />
               <PayeeInformationView
                 accountNo={formData.payeeAccountNo}
@@ -147,7 +173,17 @@ export default function HomeScreen() {
               />
               <FeeInitEstimationView feeResult={feeResult} />
               {error && (
-                <div style={{ padding: "10px 16px", backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter" }}>
+                <div
+                  style={{
+                    padding: "10px 16px",
+                    backgroundColor: "#fef2f2",
+                    border: "1px solid #fecaca",
+                    borderRadius: 6,
+                    color: "#dc2626",
+                    fontSize: 13,
+                    fontFamily: "Inter",
+                  }}
+                >
                   {error}
                 </div>
               )}
@@ -174,7 +210,10 @@ export default function HomeScreen() {
             custNo="20260330000002"
             custName="Huolala Group"
             custAcctNo={formData.payerAccountNo || "622200000000000000"}
-            onApproved={() => { setselectedMenuKey("FeeCollection"); setStep(Step.FeeCollection); }}
+            onApproved={() => {
+              setselectedMenuKey("FeeCollection");
+              setStep(Step.FeeCollection);
+            }}
           />
         )}
         {step === Step.FeeCollection && (
@@ -184,12 +223,15 @@ export default function HomeScreen() {
             custNo="20260330000002"
             custAcctNo={formData.payerAccountNo || "622200000000000000"}
             txIntdNo={feeResult?.intdNo ?? ""}
-            onFeeCollect={(result) => { setCollectionResult(result); setStep(Step.FeeCollectionResult); }}
+            onFeeCollect={(result) => {
+              setCollectionResult(result);
+              setStep(Step.FeeCollectionResult);
+            }}
           />
         )}
 
         <Overlay visible={step === Step.FeeCollectionResult}>
-          <FeeCollectionResultView
+          <FeeCollectionResultView1
             result={collectionResult}
             currency={feeResult?.currency ?? "CNY"}
             onDone={() => setStep(Step.FeeCollectionProcessComplete)}
@@ -207,10 +249,7 @@ export default function HomeScreen() {
         )}
 
         {step === Step.FeeCollectionProcessComplete && (
-          <FeeCollectionProcessComplete
-            collectionResult={collectionResult}
-            currency={feeResult?.currency ?? "CNY"}
-          />
+          <FeeCollectionProcessComplete />
         )}
       </div>
     </>

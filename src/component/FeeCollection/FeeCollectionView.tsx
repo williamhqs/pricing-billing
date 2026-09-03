@@ -1,12 +1,14 @@
 import { useCallback, useState } from "react";
 import MenuLabelView from "../FeeInit/MenuLabelView";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
-import type { FeeCalculationResult, FeeCollectionResult } from "../../types/api";
+import type {
+  FeeCalculationResult,
+  FeeCollectionResult,
+} from "../../types/api";
 import { gthrAfterFee } from "../../api/gthrAfterFee";
 import { ApiError } from "../../api/calcFeeRegDtl";
 
 interface FeeCollectionViewProps {
-
   feeResult: FeeCalculationResult | null;
   amountReceivable?: string;
   custNo: string;
@@ -23,15 +25,14 @@ export default function FeeCollectionView({
   txIntdNo,
   onFeeCollect,
 }: FeeCollectionViewProps) {
-
   const bizSnglNo = feeResult?.bizSnglNo ?? "";
   const feeNo = feeResult?.feeCode ?? "1605";
   const feeName = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
   const currency = feeResult?.currency ?? "CNY";
-  const displayAmount = amountReceivable
-    ?? (feeResult ? feeResult.proposedFee.split(" ")[0] : "9.50");
+  const displayAmount =
+    amountReceivable ??
+    (feeResult ? feeResult.proposedFee.split(" ")[0] : "9.50");
   const displayAmountWithCurrency = `${displayAmount} ${currency}`;
-
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -61,7 +62,6 @@ export default function FeeCollectionView({
     } finally {
       setLoading(false);
     }
-
   }, [bizSnglNo, custNo, custAcctNo, displayAmount, txIntdNo, onFeeCollect]);
   return (
     <div
@@ -515,7 +515,19 @@ export default function FeeCollectionView({
 
       <FeeCollectionAccountInfoView />
       {error && (
-        <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+        <div
+          style={{
+            padding: "10px 16px",
+            marginTop: 8,
+            backgroundColor: "#fef2f2",
+            border: "1px solid #fecaca",
+            borderRadius: 6,
+            color: "#dc2626",
+            fontSize: 13,
+            fontFamily: "Inter",
+            width: "100%",
+          }}
+        >
           {error}
         </div>
       )}
@@ -647,9 +659,18 @@ export default function FeeCollectionView({
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
-            onClick={handleConfirmCollection}
+            className="hover:bg-[#C4181E] bg-[#e31e24]"
+            onClick={() => {
+              const mockFeeCollectionResultFailed: FeeCollectionResult = {
+                bizSnglNo: "BIZ202609030002",
+                feeCollected: "1250.00",
+                collectionMethod: "ACCOUNT_DEDUCT",
+                collectionTime: "2026-09-03 14:31:00",
+                status: "FAIL",
+              };
+              onFeeCollect(mockFeeCollectionResultFailed);
+            }}
             disabled={loading}
-
           >
             <span
               style={{
