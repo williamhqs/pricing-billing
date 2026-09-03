@@ -1,4 +1,18 @@
-export default function FeeCollectionProcessComplete() {
+import type { FeeCollectionResult } from "../../types/api";
+
+interface FeeCollectionProcessCompleteProps {
+  collectionResult: FeeCollectionResult | null;
+  currency: string;
+}
+
+export default function FeeCollectionProcessComplete({
+  collectionResult,
+  currency,
+}: FeeCollectionProcessCompleteProps) {
+  const bizSnglNo = collectionResult?.bizSnglNo ?? "";
+  const totalFeeCollected = collectionResult
+    ? `${collectionResult.feeCollected} ${currency}`
+    : "";
   return (
     <div
       style={{
@@ -681,7 +695,7 @@ export default function FeeCollectionProcessComplete() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Business Reference No.: BIZ20260829000001
+                  Business Reference No.: {bizSnglNo}
                 </span>
               </div>
             </div>
@@ -724,7 +738,7 @@ export default function FeeCollectionProcessComplete() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Total Fee Collected: 9.50 CNY
+                  Total Fee Collected: {totalFeeCollected}
                 </span>
               </div>
             </div>

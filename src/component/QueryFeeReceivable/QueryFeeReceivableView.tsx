@@ -1,37 +1,72 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import SelectedFeeItemsView from "./SelectedFeeItemsView";
 import { FeeReceivableTableRowView } from "./FeeReceivableTableRowView";
 import { FeeReceivableTableHeaderView } from "./FeeReceivableTableHeaderView";
 import type { FeeReceivableItem } from "../../types/types";
+import { ProcessStatusLabel } from "../../types/api";
+import { queryApprovalResult } from "../../api/queryApprovalResult";
+import { ApiError } from "../../api/calcFeeRegDtl";
 import { BankInput } from "../shared/BankInput";
 
 export default function QueryFeeReceivableView({
   onProceed,
 }: {
-  onProceed: () => void;
+  onProceed: (amountReceivable?: string) => void;
 }) {
-  const [feeReceivableItems, setFeeReceivableItems] = useState<
-    FeeReceivableItem[]
-  >([]);
+  const [feeReceivableItems, setFeeReceivableItems] = useState<FeeReceivableItem[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [totalRecords, setTotalRecords] = useState(0);
+  const [totalAmount, setTotalAmount] = useState("0.00");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const addFeeItem = () => {
-    const newItem: FeeReceivableItem = {
-      numberID: `F-${Date.now()}`,
-      name: "New Fee Item",
-      amount: "500.00",
-      currency: "SGD",
-      status: "Pending",
-    };
+  const [businessReferenceNo, setBusinessReferenceNo] = useState("biz1788344039912");
+  const [customerNo, setCustomerNo] = useState("20260330000002");
+  const [customerAccountNo, setCustomerAccountNo] = useState("622200000000000000");
 
-    setFeeReceivableItems((prev) => [...prev, newItem]);
-  };
+  const handleQuery = useCallback(async () => {
+    const bizSnglNo = businessReferenceNo.trim() || undefined;
+    const custNo = customerNo.trim() || undefined;
+    const custAcctNo = customerAccountNo.trim() || undefined;
 
-  const removeFeeItem = (deleteNumberID: string) => {
-    setFeeReceivableItems((prev) =>
-      prev.filter((item) => item.numberID !== deleteNumberID),
-    );
-  };
+    if (!bizSnglNo && !custNo && !custAcctNo) {
+      setError("Please enter at least one query criteria");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    setFeeReceivableItems([]);
+    setSelectedIds([]);
+
+    try {
+      const result = await queryApprovalResult({ bizSnglNo, custNo, custAcctNo });
+
+      const items: FeeReceivableItem[] = result.data.map((item) => {
+        const status = ProcessStatusLabel[item.processStatus] ?? item.processStatus;
+        return {
+          numberID: item.jsonData.feeNo,
+          name: item.jsonData.feeNm || "Domestic Transfer Fee - Corporate",
+          amount: String(item.jsonData.actlRecvAmt),
+          currency: "CNY",
+          status,
+        };
+      });
+
+      setFeeReceivableItems(items);
+      setTotalRecords(items.length);
+      const sum = items.reduce((acc, i) => acc + Number(i.amount), 0);
+      setTotalAmount(sum.toFixed(2));
+    } catch (err: unknown) {
+      const message =
+        err instanceof ApiError
+          ? err.message
+          : "An unexpected error occurred, please try again";
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+  }, [businessReferenceNo, customerNo, customerAccountNo]);
 
   const isAllSelected =
     feeReceivableItems.length > 0 &&
@@ -233,8 +268,8 @@ export default function QueryFeeReceivableView({
                 </span>
                 <BankInput
                   style={{ fontSize: 14, fontWeight: 500 }}
-                  value={"BIZ20260829000001"}
-                  onChange={() => {}}
+                  value={businessReferenceNo}
+                  onChange={setBusinessReferenceNo}
                 />
               </div>
               <div className="flex flex-col gap-1.5 whitespace-nowrap">
@@ -243,8 +278,8 @@ export default function QueryFeeReceivableView({
                 </span>
                 <BankInput
                   style={{ fontSize: 14, fontWeight: 500 }}
-                  value={"20260330000002"}
-                  onChange={() => {}}
+                  value={customerNo}
+                  onChange={setCustomerNo}
                 />
               </div>
               <div className="flex flex-col gap-1.5 whitespace-nowrap">
@@ -253,21 +288,27 @@ export default function QueryFeeReceivableView({
                 </span>
                 <BankInput
                   style={{ fontSize: 14, fontWeight: 500 }}
-                  value={"622200000000000000"}
-                  onChange={() => {}}
+                  value={customerAccountNo}
+                  onChange={setCustomerAccountNo}
                 />
               </div>
               <button
-                className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center hover:bg-[#C4181E] bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
-                onClick={addFeeItem}
+                className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
+                onClick={handleQuery}
+                disabled={loading}
               >
                 <span className="text-sm font-semibold font-Inter text-white text-center leading-5.25">
-                  Query
+                  {loading ? "Querying..." : "Query"}
                 </span>
               </button>
             </div>
           </div>
         </div>
+        {error && (
+          <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+            {error}
+          </div>
+        )}
         <div
           style={{
             display: "flex",
@@ -362,7 +403,10 @@ export default function QueryFeeReceivableView({
               </div>
             ) : (
               <div className="px-8 pt-5 mb-5">
-                <SelectedFeeItemsView />
+                <SelectedFeeItemsView
+                  totalRecords={totalRecords}
+                  totalAmount={totalAmount}
+                />
 
                 <FeeReceivableTableHeaderView
                   checkedAll={isAllSelected}
@@ -413,7 +457,16 @@ export default function QueryFeeReceivableView({
               overflow: "hidden",
             }}
             disabled={selectedIds.length === 0}
-            onClick={onProceed}
+            onClick={() => {
+              const selectedItems = feeReceivableItems.filter((item) =>
+                selectedIds.includes(item.numberID)
+              );
+              const total = selectedItems
+                .reduce((sum, item) => sum + Number(item.amount), 0)
+                .toFixed(2);
+
+              onProceed(total);
+            }}
           >
             <span
               style={{

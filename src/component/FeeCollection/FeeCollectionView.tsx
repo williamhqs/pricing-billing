@@ -1,11 +1,68 @@
+import { useCallback, useState } from "react";
 import MenuLabelView from "../FeeInit/MenuLabelView";
 import FeeCollectionAccountInfoView from "./FeeCollectionAccountInfoView";
+import type { FeeCalculationResult, FeeCollectionResult } from "../../types/api";
+import { gthrAfterFee } from "../../api/gthrAfterFee";
+import { ApiError } from "../../api/calcFeeRegDtl";
+
+interface FeeCollectionViewProps {
+
+  feeResult: FeeCalculationResult | null;
+  amountReceivable?: string;
+  custNo: string;
+  custAcctNo: string;
+  txIntdNo: string;
+  onFeeCollect: (result: FeeCollectionResult) => void;
+}
 
 export default function FeeCollectionView({
+  feeResult,
+  amountReceivable,
+  custNo,
+  custAcctNo,
+  txIntdNo,
   onFeeCollect,
-}: {
-  onFeeCollect: () => void;
-}) {
+}: FeeCollectionViewProps) {
+
+  const bizSnglNo = feeResult?.bizSnglNo ?? "";
+  const feeNo = feeResult?.feeCode ?? "1605";
+  const feeName = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
+  const currency = feeResult?.currency ?? "CNY";
+  const displayAmount = amountReceivable
+    ?? (feeResult ? feeResult.proposedFee.split(" ")[0] : "9.50");
+  const displayAmountWithCurrency = `${displayAmount} ${currency}`;
+
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleConfirmCollection = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const result = await gthrAfterFee({
+        bizSnglNo,
+        custNo,
+        custAcctNo,
+        coltfeAcctNo: "6228480837462910573",
+        curCd: "156",
+        feeNo: "1605",
+        feeNm: "汇兑转账手续费－对公",
+        actlRecvAmt: Number(displayAmount),
+        txIntdNo,
+      });
+      onFeeCollect(result);
+    } catch (err: unknown) {
+      const message =
+        err instanceof ApiError
+          ? err.message
+          : "An unexpected error occurred, please try again";
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+
+  }, [bizSnglNo, custNo, custAcctNo, displayAmount, txIntdNo, onFeeCollect]);
   return (
     <div
       style={{
@@ -149,7 +206,7 @@ export default function FeeCollectionView({
                   whiteSpace: "nowrap",
                 }}
               >
-                BIZ20260901230679
+                {bizSnglNo}
               </span>
             </div>
           </div>
@@ -224,7 +281,7 @@ export default function FeeCollectionView({
                   whiteSpace: "nowrap",
                 }}
               >
-                1605
+                {feeNo}
               </span>
             </div>
           </div>
@@ -299,7 +356,7 @@ export default function FeeCollectionView({
                   whiteSpace: "nowrap",
                 }}
               >
-                Domestic Transfer Fee - Corporate
+                {feeName}
               </span>
             </div>
           </div>
@@ -374,7 +431,7 @@ export default function FeeCollectionView({
                   whiteSpace: "nowrap",
                 }}
               >
-                9.50 CNY
+                {displayAmountWithCurrency}
               </span>
             </div>
           </div>
@@ -449,7 +506,7 @@ export default function FeeCollectionView({
                   whiteSpace: "nowrap",
                 }}
               >
-                CNY
+                {currency}
               </span>
             </div>
           </div>
@@ -457,6 +514,11 @@ export default function FeeCollectionView({
       </div>
 
       <FeeCollectionAccountInfoView />
+      {error && (
+        <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+          {error}
+        </div>
+      )}
       <div
         style={{
           display: "flex",
@@ -540,7 +602,7 @@ export default function FeeCollectionView({
                 whiteSpace: "nowrap",
               }}
             >
-              9.50 CNY
+              {displayAmountWithCurrency}
             </span>
           </div>
         </div>
@@ -585,8 +647,9 @@ export default function FeeCollectionView({
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
-            className="hover:bg-[#C4181E] bg-[#e31e24]"
-            onClick={onFeeCollect}
+            onClick={handleConfirmCollection}
+            disabled={loading}
+
           >
             <span
               style={{
@@ -599,7 +662,7 @@ export default function FeeCollectionView({
                 whiteSpace: "nowrap",
               }}
             >
-              Confirm Collection
+              {loading ? "Processing..." : "Confirm Collection"}
             </span>
           </button>
           <span

@@ -1,10 +1,29 @@
+import type { FeeCalculationResult } from "../../types/api";
+
 export default function FeeConfirmationView({
+  feeResult,
   onConfirm,
   onAdjustment,
+  loading = false,
+  error,
 }: {
+  feeResult: FeeCalculationResult | null;
   onConfirm: () => void;
   onAdjustment: () => void;
+  loading?: boolean;
+  error?: string | null;
 }) {
+  const bizSnglNo = feeResult?.bizSnglNo ?? "BIZ20260901226302";
+  const feeCode = feeResult?.feeCode ?? "1605";
+  const feeType = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
+  const baseFee = feeResult
+    ? `${feeResult.baseFee} ${feeResult.currency}`
+    : "10.00 CNY";
+  const discount = feeResult
+    ? `${feeResult.discount} ${feeResult.currency}`
+    : "0.50 CNY";
+  const proposedFee = feeResult?.proposedFee ?? "9.50 CNY";
+
   return (
     <div
       style={{
@@ -148,7 +167,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                BIZ20260901226302
+                {bizSnglNo}
               </span>
             </div>
           </div>
@@ -223,7 +242,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                1605
+                {feeCode}
               </span>
             </div>
           </div>
@@ -298,7 +317,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                Domestic Transfer Fee - Corporate
+                {feeType}
               </span>
             </div>
           </div>
@@ -373,7 +392,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                10.00 CNY
+                {baseFee}
               </span>
             </div>
           </div>
@@ -448,7 +467,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                0.50 CNY
+                {discount}
               </span>
             </div>
           </div>
@@ -536,7 +555,7 @@ export default function FeeConfirmationView({
                   whiteSpace: "nowrap",
                 }}
               >
-                9.50 CNY
+                {proposedFee}
               </span>
             </div>
           </div>
@@ -586,7 +605,7 @@ export default function FeeConfirmationView({
             height: 56,
           }}
         >
-          <button
+          {/* <button
             style={{
               display: "flex",
               flexDirection: "row",
@@ -618,7 +637,7 @@ export default function FeeConfirmationView({
             >
               Request Adjustment
             </span>
-          </button>
+          </button> */}
           <button
             style={{
               display: "flex",
@@ -637,6 +656,7 @@ export default function FeeConfirmationView({
             }}
             className="hover:bg-[#C4181E] bg-[#e31e24]"
             onClick={onConfirm}
+            disabled={loading}
           >
             <span
               style={{
@@ -649,10 +669,15 @@ export default function FeeConfirmationView({
                 whiteSpace: "nowrap",
               }}
             >
-              Confirm & Proceed
+              {loading ? "Submitting..." : "Confirm & Proceed"}
             </span>
           </button>
         </div>
+        {error && (
+          <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );

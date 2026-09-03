@@ -1,8 +1,24 @@
-export default function FeeCollectionResultView({
-  onDone,
-}: {
+import type { FeeCollectionResult } from "../../types/api";
+
+interface FeeCollectionResultViewProps {
+  result: FeeCollectionResult | null;
+  currency: string;
   onDone: () => void;
-}) {
+}
+
+export default function FeeCollectionResultView({
+  result,
+  currency,
+  onDone,
+}: FeeCollectionResultViewProps) {
+
+  const bizSnglNo = result?.bizSnglNo ?? "";
+  const feeCollected = result ? `${result.feeCollected} ${currency}` : "";
+  const collectionMethod = result?.collectionMethod ?? "Transfer";
+  const collectionTime = result?.collectionTime ?? "";
+  const status = result?.status ?? "Collected";
+
+
   return (
     <div
       style={{
@@ -142,7 +158,7 @@ export default function FeeCollectionResultView({
                 whiteSpace: "nowrap",
               }}
             >
-              BIZ20260829000001
+              {bizSnglNo}
             </span>
           </div>
         </div>
@@ -215,7 +231,7 @@ export default function FeeCollectionResultView({
                 whiteSpace: "nowrap",
               }}
             >
-              9.50 CNY
+              {feeCollected}
             </span>
           </div>
         </div>
@@ -288,7 +304,7 @@ export default function FeeCollectionResultView({
                 whiteSpace: "nowrap",
               }}
             >
-              Transfer
+              {collectionMethod}
             </span>
           </div>
         </div>
@@ -434,7 +450,7 @@ export default function FeeCollectionResultView({
                 whiteSpace: "nowrap",
               }}
             >
-              2026-09-02 09:03:24
+              {collectionTime}
             </span>
           </div>
         </div>
@@ -506,7 +522,7 @@ export default function FeeCollectionResultView({
                 whiteSpace: "nowrap",
               }}
             >
-              Collected
+              {status}
             </span>
           </div>
         </div>
@@ -538,11 +554,14 @@ export default function FeeCollectionResultView({
             justifyContent: "center",
             alignItems: "center",
             height: 40,
+            backgroundColor: "#e31e24",
+
             borderRadius: 4,
             border: "1px solid #e31e24",
             overflow: "hidden",
           }}
           className="hover:bg-[#C4181E] bg-[#e31e24]"
+
           onClick={onDone}
         >
           <span

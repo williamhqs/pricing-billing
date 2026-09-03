@@ -1,4 +1,10 @@
-export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
+export default function ButtonsView({
+  onConfirm,
+  loading = false,
+}: {
+  onConfirm: () => void;
+  loading?: boolean;
+}) {
   return (
     <div
       style={{
@@ -66,6 +72,7 @@ export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
         }}
         className="hover:bg-[#C4181E] bg-[#e31e24]"
         onClick={onConfirm}
+        disabled={loading}
       >
         <span
           style={{
@@ -78,7 +85,7 @@ export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
             whiteSpace: "nowrap",
           }}
         >
-          Submit
+          {loading ? "Submitting..." : "Submit"}
         </span>
       </button>
     </div>

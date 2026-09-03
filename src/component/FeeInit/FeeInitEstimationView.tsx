@@ -1,4 +1,18 @@
-export default function FeeInitEstimationView() {
+import type { FeeCalculationResult } from "../../types/api";
+
+interface FeeInitEstimationViewProps {
+  feeResult: FeeCalculationResult | null;
+}
+
+export default function FeeInitEstimationView({
+  feeResult,
+}: FeeInitEstimationViewProps) {
+  const feeType = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
+  const feeCode = feeResult?.feeCode ?? "1605";
+  const baseFee = feeResult?.baseFee ?? "10.00";
+  const discount = feeResult?.discount ?? "0.50";
+  const proposedFee = feeResult?.proposedFee ?? "9.50 CNY";
+
   return (
     <div
       style={{
@@ -164,7 +178,7 @@ export default function FeeInitEstimationView() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Domestic Transfer Fee - Corporate
+                  {feeType}
                 </span>
               </div>
             </div>
@@ -237,7 +251,7 @@ export default function FeeInitEstimationView() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  1605
+                  {feeCode}
                 </span>
               </div>
             </div>
@@ -310,7 +324,7 @@ export default function FeeInitEstimationView() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  10.00
+                  {baseFee}
                 </span>
               </div>
             </div>
@@ -383,7 +397,7 @@ export default function FeeInitEstimationView() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  0.50
+                  {discount}
                 </span>
               </div>
             </div>
@@ -455,7 +469,7 @@ export default function FeeInitEstimationView() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  9.50 CNY
+                  {proposedFee}
                 </span>
               </div>
             </div>

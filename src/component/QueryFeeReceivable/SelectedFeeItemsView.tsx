@@ -1,4 +1,14 @@
-export default function SelectedFeeItemsView() {
+interface SelectedFeeItemsViewProps {
+  totalRecords: number;
+  totalAmount: string;
+  currency?: string;
+}
+
+export default function SelectedFeeItemsView({
+  totalRecords,
+  totalAmount,
+  currency = "CNY",
+}: SelectedFeeItemsViewProps) {
   return (
     <div
       style={{
@@ -30,7 +40,7 @@ export default function SelectedFeeItemsView() {
           whiteSpace: "nowrap",
         }}
       >
-        Total Fee Receivable: 1 record(s) | Total Amount: 9.50 CNY
+        Total Fee Receivable: {totalRecords} record(s) | Total Amount: {totalAmount} {currency}
       </span>
     </div>
   );

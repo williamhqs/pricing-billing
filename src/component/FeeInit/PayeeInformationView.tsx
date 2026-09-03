@@ -1,6 +1,14 @@
 import { BankInput } from "../shared/BankInput";
 
-export default function PayeeInformationView() {
+interface PayeeInformationViewProps {
+  accountNo: string;
+  onAccountNoChange: (value: string) => void;
+}
+
+export default function PayeeInformationView({
+  accountNo,
+  onAccountNoChange,
+}: PayeeInformationViewProps) {
   return (
     <div
       style={{
@@ -103,8 +111,8 @@ export default function PayeeInformationView() {
             </span>
           </div>
           <BankInput
-            value=""
-            onChange={() => {}}
+            value={accountNo}
+            onChange={onAccountNoChange}
             placeholder="Please input payee account No."
           />
         </div>
