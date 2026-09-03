@@ -149,6 +149,15 @@ export default function HomeScreen() {
               <PayerInformationView
                 accountNo={formData.payerAccountNo}
                 onAccountNoChange={(v) => updateField("payerAccountNo", v)}
+                onFillMockDataByClick={() =>
+                  setFormData({
+                    payerAccountNo: "622200000000000000",
+                    payeeAccountNo: "6217003829165047281",
+                    transactionAmount: "20000.00",
+                    currency: "cny",
+                    remark: "Goods payment",
+                  })
+                }
               />
               <PayeeInformationView
                 accountNo={formData.payeeAccountNo}

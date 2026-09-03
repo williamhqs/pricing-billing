@@ -61,7 +61,6 @@ export default function FeeCollectionResultView1({
           </span>
 
           <div style={{ display: "flex", gap: 24, paddingTop: 12 }}>
-            {/* 左侧 */}
             <div style={{ flex: 1 }}>
               <div style={{ marginBottom: 12 }}>
                 <span style={labelStyle}>Business Reference No.</span>
@@ -83,7 +82,7 @@ export default function FeeCollectionResultView1({
             <div
               style={{
                 flex: 1,
-                border: "1px solid #e5e7eb",
+                borderLeft: "1px solid #e5e7eb",
                 paddingLeft: 28,
                 paddingTop: 0,
               }}
@@ -101,7 +100,7 @@ export default function FeeCollectionResultView1({
         </div>
 
         <div style={{ width: "100%", marginTop: 16 }}>
-          <div style={{ border: "1px solid #e5e7eb", padding: 16 }}>
+          <div style={{ borderTop: "1px solid #e5e7eb", padding: 16 }}>
             <span
               style={{
                 fontSize: 12,
@@ -114,7 +113,6 @@ export default function FeeCollectionResultView1({
               Posting Details
             </span>
             <div style={{ display: "flex", gap: 24, paddingTop: 12 }}>
-              {/* 左侧 */}
               <div style={{ flex: 1 }}>
                 <div style={{ marginBottom: 12 }}>
                   <span style={labelStyle}>Debit Account</span>
@@ -132,11 +130,11 @@ export default function FeeCollectionResultView1({
                   </div>
                 </div>
               </div>
-              {/* 右侧 */}
+
               <div
                 style={{
                   flex: 1,
-                  border: "1px solid #e5e7eb",
+                  borderLeft: "1px solid #e5e7eb",
                   paddingLeft: 28,
                 }}
               >

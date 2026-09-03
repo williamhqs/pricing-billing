@@ -659,6 +659,7 @@ export default function FeeCollectionView({
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            className="hover:bg-[#C4181E] bg-[#e31e24]"
             onClick={() => {
               const mockFeeCollectionResultFailed: FeeCollectionResult = {
                 bizSnglNo: "BIZ202609030002",

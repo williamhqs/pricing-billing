@@ -3,11 +3,13 @@ import { BankInput } from "../shared/BankInput";
 interface PayerInformationViewProps {
   accountNo: string;
   onAccountNoChange: (value: string) => void;
+  onFillMockDataByClick: () => void;
 }
 
 export default function PayerInformationView({
   accountNo,
   onAccountNoChange,
+  onFillMockDataByClick,
 }: PayerInformationViewProps) {
   return (
     <div
@@ -29,6 +31,7 @@ export default function PayerInformationView({
         boxShadow: "0px 1px 2px #1a2a4a0a",
         overflow: "hidden",
       }}
+      onClick={onFillMockDataByClick}
     >
       <div
         style={{
