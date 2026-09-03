@@ -118,6 +118,7 @@ export interface TransferFormData {
 
 export interface FeeCalculationResult {
   bizSnglNo: string;
+  intdNo: string;
   feeType: string;
   feeCode: string;
   baseFee: string;
@@ -137,6 +138,7 @@ export interface BizAssetJsonData {
   feeNo: string;
   feeNm: string;
   actlRecvAmt: number;
+  custAcctNo: string;
   approvalOpinion: string;
 }
 
@@ -156,3 +158,22 @@ export interface BizAssetSyncResponse {
   message?: string;
   [key: string]: unknown;
 }
+
+// ── queryApprovalResult ─────────────────────────────────────────────
+
+export const ProcessStatus = { APPROVING: "1", APPROVED: "2", REJECTED: "3", REVOKED: "4", TERMINATED: "5" } as const;
+export const ProcessStatusLabel: Record<string, string> = { "1": "Approving", "2": "Approved", "3": "Rejected", "4": "Revoked", "5": "Terminated" };
+export const ExecuteStatus = { NOT_EXECUTED: "1", SUCCESS: "2", FAILED: "3" } as const;
+
+export interface ApprovalJsonData { bizSnglNo: string; custNo: string; custAcctNo?: string; feeNm: string; actlRecvAmt: number; feeNo: string; custName: string; custLevel: string; approvalOpinion: string; }
+export interface ApprovalResultItem { id: string; code: string; name: string; typeConfigCode: string; typeConfigName: string; processStatus: string; executeStatus: string; jsonData: ApprovalJsonData; [key: string]: unknown; }
+export interface QueryApprovalResultRequest { typeConfigCode: string; bizSnglNo?: string; custNo?: string; custAcctNo?: string; }
+export interface QueryApprovalResultResponse { code: string; msg: string; data: ApprovalResultItem[]; permitPropertys: unknown; }
+
+// ── B000TL gthrAfterFee ─────────────────────────────────────────────
+
+export interface GthrReqFeeItem { feeNm: string; feeNo: string; actlRecvAmt: number; }
+export interface GthrReqFeeHead { feeItemScnt: string; cfmFlag: string; cashrmtFlgCd: string; cashTranFlgCd: string; coltfeAcctNo: string; curCd: string; reqFeeList: GthrReqFeeItem[]; }
+export interface GthrAfterFeeRequest { intdNo: string; bizSnglNo: string; servSnglNo: string; tenantNo: string; txOrgNo: string; txDt: string; sysTm: string; operTelrNo: string; lunchAppSysCd: string; custNo: string; traceId: string; spanId: string; servCd: string; reqePtyAppSysCd: string; tranCd: string; terminalTypCd: string; baseProdtNo: string; lprOrgNo: string; authTelrNo: string; bizAccessChnlCd: string; txSceneCd: string; bizSn: string; cashAnlyzCd: string; txIntdNo: string; custAcctNo: string; relaSeqNo: string; reqFeeHead: GthrReqFeeHead; }
+export interface GthrAfterFeeResponse { intdNo: string; bizSnglNo: string; servSnglNo: string; success: boolean; rspndCd: string; rspndInfo: string; rspFeeHead: { txCurCd: string; rspFeeList: RspFeeItem[] | null; [key: string]: unknown; }; servPtyRetnTs: string; [key: string]: unknown; }
+export interface FeeCollectionResult { bizSnglNo: string; feeCollected: string; collectionMethod: string; collectionTime: string; status: string; }

@@ -15,6 +15,7 @@ export interface ApprovalFormData {
   feeNo: string;
   feeNm: string;
   actlRecvAmt: number;
+  custAcctNo: string;
   approvalOpinion: string;
 }
 
@@ -32,6 +33,7 @@ function buildRequest(data: ApprovalFormData): BizAssetSyncRequest {
       feeNo: data.feeNo,
       feeNm: data.feeNm,
       actlRecvAmt: data.actlRecvAmt,
+      custAcctNo: data.custAcctNo,
       approvalOpinion: data.approvalOpinion,
     },
   };

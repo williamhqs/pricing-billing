@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
 import { Step } from "../types/types";
-import type { FeeCalculationResult, TransferFormData } from "../types/api";
+import type { FeeCalculationResult, FeeCollectionResult, TransferFormData } from "../types/api";
 import { calcFeeRegDtl, ApiError } from "../api/calcFeeRegDtl";
+import { bizAssetSync } from "../api/bizAssetSync";
 import TopBarView from "../component/FeeInit/TopBarView";
 import HeaderView from "../component/FeeInit/HeaderView";
 import MenuLabelView from "../component/FeeInit/MenuLabelView";
@@ -15,6 +16,10 @@ import FeeConfirmationView from "../component/FeeConfirmation/FeeConfirmationVie
 import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
 import { TwoActionMenu } from "../component/shared/TwoActionMenu";
 import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
+import Overlay from "../component/shared/Overlay";
+import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
+import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
+import QueryFeeReceivableView from "../component/QueryFeeReceivable/QueryFeeReceivableView";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -28,11 +33,13 @@ export default function HomeScreen() {
     remark: "",
   });
 
-  const [feeResult, setFeeResult] = useState<FeeCalculationResult | null>(
-    null,
-  );
+  const [feeResult, setFeeResult] = useState<FeeCalculationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [collectionResult, setCollectionResult] = useState<FeeCollectionResult | null>(null);
+  const [amountReceivable, setAmountReceivable] = useState<string | undefined>(undefined);
+  const [syncLoading, setSyncLoading] = useState(false);
+  const [syncError, setSyncError] = useState<string | null>(null);
 
   const updateField = useCallback(
     <K extends keyof TransferFormData>(field: K, value: TransferFormData[K]) => {
@@ -44,7 +51,6 @@ export default function HomeScreen() {
   const handleSubmit = useCallback(async () => {
     setLoading(true);
     setError(null);
-
     try {
       const result = await calcFeeRegDtl(formData);
       setFeeResult(result);
@@ -60,6 +66,35 @@ export default function HomeScreen() {
     }
   }, [formData]);
 
+  const handleConfirmProceed = useCallback(async () => {
+    if (!feeResult) return;
+    setSyncLoading(true);
+    setSyncError(null);
+    try {
+      const actlRecvAmt = Number(feeResult.proposedFee.split(" ")[0]);
+      await bizAssetSync({
+        bizSnglNo: feeResult.bizSnglNo,
+        custNo: "20260330000002",
+        custName: "Huolala Group",
+        feeNo: feeResult.feeCode,
+        feeNm: feeResult.feeType,
+        actlRecvAmt,
+        custAcctNo: formData.payerAccountNo || "622200000000000000",
+        approvalOpinion: "客户为白金客户，申请优惠",
+      });
+      setselectedMenuKey("FeeCollection");
+      setStep(Step.FeeCollection);
+    } catch (err: unknown) {
+      const message =
+        err instanceof ApiError
+          ? err.message
+          : "An unexpected error occurred, please try again";
+      setSyncError(message);
+    } finally {
+      setSyncLoading(false);
+    }
+  }, [feeResult, formData.payerAccountNo]);
+
   return (
     <>
       <TopBarView />
@@ -72,59 +107,53 @@ export default function HomeScreen() {
               {
                 key: "TransferInitiation",
                 label: "Transfer Initiation",
+                onClick: () => { setselectedMenuKey("TransferInitiation"); setStep(Step.Init); },
+              },
+              {
+                key: "QueryFeeReceivable",
+                label: "Query Fee Receivable",
                 onClick: () => {
-                  setselectedMenuKey("TransferInitiation");
-                  setStep(Step.Init);
+                  setselectedMenuKey("QueryFeeReceivable");
+                  setStep(Step.QueryFeeReceivable);
                 },
               },
               {
                 key: "FeeCollection",
                 label: "Fee Collection",
-                onClick: () => {
-                  setselectedMenuKey("FeeCollection");
-                  setStep(Step.FeeCollection);
-                },
+                onClick: () => { setselectedMenuKey("FeeCollection"); setStep(Step.FeeCollection); },
               },
             ]}
           />
         </div>
         {step === Step.Init && (
-          <div className="flex flex-col gap-2.5 w-full">
+          <>
             <MenuLabelView title={"Domestic Transfer"} />
-            <PayerInformationView
-              accountNo={formData.payerAccountNo}
-              onAccountNoChange={(v) => updateField("payerAccountNo", v)}
-            />
-            <PayeeInformationView
-              accountNo={formData.payeeAccountNo}
-              onAccountNoChange={(v) => updateField("payeeAccountNo", v)}
-            />
-            <TransactionDetailsView
-              amount={formData.transactionAmount}
-              currency={formData.currency}
-              remark={formData.remark}
-              onAmountChange={(v) => updateField("transactionAmount", v)}
-              onCurrencyChange={(v) => updateField("currency", v)}
-              onRemarkChange={(v) => updateField("remark", v)}
-            />
-            <FeeInitEstimationView feeResult={feeResult} />
-            {error && (
-              <div
-                style={{
-                  padding: "10px 16px",
-                  backgroundColor: "#fef2f2",
-                  border: "1px solid #fecaca",
-                  borderRadius: 6,
-                  color: "#dc2626",
-                  fontSize: 13,
-                  fontFamily: "Inter",
-                }}
-              >
-                {error}
-              </div>
-            )}
-            <ButtonsView onConfirm={handleSubmit} loading={loading} />
-          </div>
+            <div className="flex flex-col gap-3.5 w-full">
+              <PayerInformationView
+                accountNo={formData.payerAccountNo}
+                onAccountNoChange={(v) => updateField("payerAccountNo", v)}
+              />
+              <PayeeInformationView
+                accountNo={formData.payeeAccountNo}
+                onAccountNoChange={(v) => updateField("payeeAccountNo", v)}
+              />
+              <TransactionDetailsView
+                amount={formData.transactionAmount}
+                currency={formData.currency}
+                remark={formData.remark}
+                onAmountChange={(v) => updateField("transactionAmount", v)}
+                onCurrencyChange={(v) => updateField("currency", v)}
+                onRemarkChange={(v) => updateField("remark", v)}
+              />
+              <FeeInitEstimationView feeResult={feeResult} />
+              {error && (
+                <div style={{ padding: "10px 16px", backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter" }}>
+                  {error}
+                </div>
+              )}
+              <ButtonsView onConfirm={handleSubmit} loading={loading} />
+            </div>
+          </>
         )}
 
         {step === Step.FeeConfirmation && (
@@ -132,11 +161,10 @@ export default function HomeScreen() {
             <BannerView bizSnglNo={feeResult?.bizSnglNo} />
             <FeeConfirmationView
               feeResult={feeResult}
-              onConfirm={() => {
-                setselectedMenuKey("FeeCollection");
-                setStep(Step.FeeCollection);
-              }}
+              onConfirm={handleConfirmProceed}
               onAdjustment={() => setStep(Step.FeeAdjustment)}
+              loading={syncLoading}
+              error={syncError}
             />
           </>
         )}
@@ -145,13 +173,45 @@ export default function HomeScreen() {
             feeResult={feeResult}
             custNo="20260330000002"
             custName="Huolala Group"
-            onApproved={() => {
+            custAcctNo={formData.payerAccountNo || "622200000000000000"}
+            onApproved={() => { setselectedMenuKey("FeeCollection"); setStep(Step.FeeCollection); }}
+          />
+        )}
+        {step === Step.FeeCollection && (
+          <FeeCollectionView
+            feeResult={feeResult}
+            amountReceivable={amountReceivable}
+            custNo="20260330000002"
+            custAcctNo={formData.payerAccountNo || "622200000000000000"}
+            txIntdNo={feeResult?.intdNo ?? ""}
+            onFeeCollect={(result) => { setCollectionResult(result); setStep(Step.FeeCollectionResult); }}
+          />
+        )}
+
+        <Overlay visible={step === Step.FeeCollectionResult}>
+          <FeeCollectionResultView
+            result={collectionResult}
+            currency={feeResult?.currency ?? "CNY"}
+            onDone={() => setStep(Step.FeeCollectionProcessComplete)}
+          />
+        </Overlay>
+
+        {step === Step.QueryFeeReceivable && (
+          <QueryFeeReceivableView
+            onProceed={(receivableAmt) => {
+              if (receivableAmt) setAmountReceivable(receivableAmt);
               setselectedMenuKey("FeeCollection");
               setStep(Step.FeeCollection);
             }}
           />
         )}
-        {step === Step.FeeCollection && <FeeCollectionView />}
+
+        {step === Step.FeeCollectionProcessComplete && (
+          <FeeCollectionProcessComplete
+            collectionResult={collectionResult}
+            currency={feeResult?.currency ?? "CNY"}
+          />
+        )}
       </div>
     </>
   );

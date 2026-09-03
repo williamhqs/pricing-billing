@@ -148,6 +148,7 @@ function parseResponse(
 
   return {
     bizSnglNo,
+    intdNo: data.intdNo,
     feeType: "Domestic Transfer Fee - Corporate", // feeItem.feeNm
     feeCode: feeItem.feeNo ?? "",
     baseFee: String(feeItem.recvblAmt ?? ""),

@@ -4,10 +4,14 @@ export default function FeeConfirmationView({
   feeResult,
   onConfirm,
   onAdjustment,
+  loading = false,
+  error,
 }: {
   feeResult: FeeCalculationResult | null;
   onConfirm: () => void;
   onAdjustment: () => void;
+  loading?: boolean;
+  error?: string | null;
 }) {
   const bizSnglNo = feeResult?.bizSnglNo ?? "BIZ20260901226302";
   const feeCode = feeResult?.feeCode ?? "1605";
@@ -601,7 +605,7 @@ export default function FeeConfirmationView({
             height: 56,
           }}
         >
-          <button
+          {/* <button
             style={{
               display: "flex",
               flexDirection: "row",
@@ -633,7 +637,7 @@ export default function FeeConfirmationView({
             >
               Request Adjustment
             </span>
-          </button>
+          </button> */}
           <button
             style={{
               display: "flex",
@@ -646,12 +650,13 @@ export default function FeeConfirmationView({
               justifyContent: "center",
               alignItems: "center",
               height: 40,
-              backgroundColor: "#e31e24",
               borderRadius: 4,
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            className="hover:bg-[#C4181E] bg-[#e31e24]"
             onClick={onConfirm}
+            disabled={loading}
           >
             <span
               style={{
@@ -664,10 +669,15 @@ export default function FeeConfirmationView({
                 whiteSpace: "nowrap",
               }}
             >
-              Confirm & Proceed
+              {loading ? "Submitting..." : "Confirm & Proceed"}
             </span>
           </button>
         </div>
+        {error && (
+          <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );
