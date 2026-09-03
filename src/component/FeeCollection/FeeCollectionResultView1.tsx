@@ -1,8 +1,22 @@
-export default function FeeCollectionResultView1({
-  onDone,
-}: {
+import type { FeeCollectionResult } from "../../types/api";
+
+interface FeeCollectionResultViewProps {
+  result: FeeCollectionResult | null;
+  currency: string;
   onDone: () => void;
-}) {
+}
+
+export default function FeeCollectionResultView1({
+  result,
+  currency,
+  onDone,
+}: FeeCollectionResultViewProps) {
+  const bizSnglNo = result?.bizSnglNo ?? "";
+  const feeCollected = result ? `${result.feeCollected} ${currency}` : "";
+  const collectionMethod = result?.collectionMethod ?? "Transfer";
+  const collectionTime = result?.collectionTime ?? "";
+  const status = result?.status ?? "Collected";
+
   return (
     <div
       style={{

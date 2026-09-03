@@ -231,15 +231,10 @@ export default function HomeScreen() {
         )}
 
         <Overlay visible={step === Step.FeeCollectionResult}>
-          {/* <FeeCollectionResultView
+          <FeeCollectionResultView1
             result={collectionResult}
             currency={feeResult?.currency ?? "CNY"}
             onDone={() => setStep(Step.FeeCollectionProcessComplete)}
-          /> */}
-          <FeeCollectionResultView1
-            onDone={() => {
-              setStep(Step.FeeCollectionProcessComplete);
-            }}
           />
         </Overlay>
 
