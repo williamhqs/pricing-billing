@@ -6,6 +6,7 @@ export const Step = {
   FeeCollectionResult: "feeCollectionResult",
   FeeCollectionProcessComplete: "feeCollectionProcessComplete",
   QueryFeeReceivable: "queryFeeReceivable",
+  QueryFeeReceivableConfirm: "QueryFeeReceivableConfirm",
 } as const;
 
 export type Step = (typeof Step)[keyof typeof Step];

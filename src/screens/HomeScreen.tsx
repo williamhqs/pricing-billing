@@ -24,6 +24,7 @@ import Overlay from "../component/shared/Overlay";
 import QueryFeeReceivableView from "../component/QueryFeeReceivable/QueryFeeReceivableView";
 import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
 import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
+import ConfirmView from "../component/QueryFeeReceivable/ConfirmView";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -57,7 +58,6 @@ export default function HomeScreen() {
     },
     [],
   );
-
   const handleSubmit = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -241,11 +241,21 @@ export default function HomeScreen() {
           <QueryFeeReceivableView
             onProceed={(receivableAmt) => {
               if (receivableAmt) setAmountReceivable(receivableAmt);
+              setStep(Step.QueryFeeReceivableConfirm);
+            }}
+          />
+        )}
+
+        <Overlay visible={step === Step.QueryFeeReceivableConfirm}>
+          <ConfirmView
+          totalAmount={amountReceivable}
+            onCancel={() => setStep(Step.QueryFeeReceivable)}
+            onConfirm={() => {
               setselectedMenuKey("FeeCollection");
               setStep(Step.FeeCollection);
             }}
           />
-        )}
+        </Overlay>
 
         {step === Step.FeeCollectionProcessComplete && (
           <FeeCollectionProcessComplete />
