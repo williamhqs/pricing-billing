@@ -11,13 +11,11 @@ export default function FeeCollectionResultView({
   currency,
   onDone,
 }: FeeCollectionResultViewProps) {
-
   const bizSnglNo = result?.bizSnglNo ?? "";
   const feeCollected = result ? `${result.feeCollected} ${currency}` : "";
   const collectionMethod = result?.collectionMethod ?? "Transfer";
   const collectionTime = result?.collectionTime ?? "";
   const status = result?.status ?? "Collected";
-
 
   return (
     <div
@@ -25,14 +23,8 @@ export default function FeeCollectionResultView({
         display: "flex",
         flexDirection: "column",
         gap: 0,
-        paddingTop: 0,
-        paddingRight: 0,
-        paddingBottom: 0,
-        paddingLeft: 0,
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        width: 440,
-        height: 418.28125,
+        width: 760,
+        height: 600,
         backgroundColor: "#ffffff",
         borderRadius: 8,
         boxShadow: "0px 12px 40px #1a2a4a2e",
@@ -46,17 +38,10 @@ export default function FeeCollectionResultView({
           backgroundColor: "#e31e24",
         }}
       />
+
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 0,
-          paddingTop: 16,
-          paddingRight: 20,
-          paddingBottom: 16,
-          paddingLeft: 20,
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
+          padding: "16px 20px",
           width: "100%",
           border: "1px solid #e5e7eb",
         }}
@@ -67,7 +52,6 @@ export default function FeeCollectionResultView({
             fontWeight: 600,
             fontFamily: "Inter",
             color: "#1a2a4a",
-            textAlign: "left",
             lineHeight: "22.5px",
             whiteSpace: "nowrap",
           }}
@@ -75,471 +59,128 @@ export default function FeeCollectionResultView({
           ✅ Collection Successful
         </span>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 0,
-          paddingTop: 20,
-          paddingRight: 20,
-          paddingBottom: 20,
-          paddingLeft: 20,
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          width: "100%",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 41.796875,
-            border: "1px solid #f3f4f6",
-          }}
-        >
-          <div
+
+      <div style={{ padding: "18px 24px 20px" }}>
+        <div style={{ width: "100%" }}>
+          <span
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
+              fontSize: 12,
+              fontWeight: 700,
+              fontFamily: "Inter",
+              color: "#1a2a4a",
+              lineHeight: "19.2px",
             }}
           >
-            <span
+            Transaction Information
+          </span>
+
+          <div style={{ display: "flex", gap: 24, paddingTop: 12 }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ marginBottom: 12 }}>
+                <span style={labelStyle}>Business Reference No.</span>
+                <p style={valueStyle}>{bizSnglNo}</p>
+              </div>
+              <div style={{ marginBottom: 12 }}>
+                <span style={labelStyle}>Payment Reference No.</span>
+                <p style={valueStyle}>PAY20260911001</p>
+              </div>
+              <div>
+                <span style={labelStyle}>Status</span>
+                <div style={statusRowStyle}>
+                  <div style={greenDot}></div>
+                  <span style={statusTextGreen}>{status}</span>
+                </div>
+              </div>
+            </div>
+
+            <div
               style={{
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
+                flex: 1,
+                borderLeft: "1px solid #e5e7eb",
+                paddingLeft: 28,
+                paddingTop: 0,
               }}
             >
-              Business Reference No.
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#374151",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {bizSnglNo}
-            </span>
+              <div style={{ marginBottom: 12 }}>
+                <span style={labelStyle}>Collection Amount</span>
+                <p style={valueStyle}>9.50 CNY</p>
+              </div>
+              <div>
+                <span style={labelStyle}>Collection Time</span>
+                <p style={valueStyle}>{collectionTime}</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 41.796875,
-            border: "1px solid #f3f4f6",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
+
+        <div style={{ width: "100%", marginTop: 16 }}>
+          <div style={{ borderTop: "1px solid #e5e7eb", padding: 16 }}>
             <span
               style={{
-                fontSize: 13,
-                fontWeight: 500,
+                fontSize: 12,
+                fontWeight: 700,
                 fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
+                color: "#1a2a4a",
+                lineHeight: "19.2px",
               }}
             >
-              Fee Collected
+              Posting Details
             </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#374151",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {feeCollected}
-            </span>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 41.796875,
-            border: "1px solid #f3f4f6",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Collection Method
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#374151",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {collectionMethod}
-            </span>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 41.796875,
-            border: "1px solid #f3f4f6",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Payment Reference No.
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#374151",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              PAY20260902413
-            </span>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 41.796875,
-            border: "1px solid #f3f4f6",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Collection Time
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#374151",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {collectionTime}
-            </span>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: 16,
-            paddingTop: 10,
-            paddingRight: 0,
-            paddingBottom: 10,
-            paddingLeft: 0,
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            width: "100%",
-            height: 40.796875,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "Inter",
-                color: "#6b7280",
-                textAlign: "left",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Status
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              paddingTop: 0,
-              paddingRight: 0,
-              paddingBottom: 0,
-              paddingLeft: 0,
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              height: "100%",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "Inter",
-                color: "#16a34a",
-                textAlign: "right",
-                lineHeight: "20.799999237060547px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {status}
-            </span>
+            <div style={{ display: "flex", gap: 24, paddingTop: 12 }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ marginBottom: 12 }}>
+                  <span style={labelStyle}>Debit Account</span>
+                  <p style={valueStyle}>6228480837462910573</p>
+                </div>
+                <div style={{ marginBottom: 12 }}>
+                  <span style={labelStyle}>Credit GL Account</span>
+                  <p style={valueStyle}>601101 - Fee Income</p>
+                </div>
+                <div>
+                  <span style={labelStyle}>Posting Status</span>
+                  <div style={statusRowStyle}>
+                    <div style={greenDot}></div>
+                    <span style={statusTextGreen}>Posted</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  flex: 1,
+                  borderLeft: "1px solid #e5e7eb",
+                  paddingLeft: 28,
+                }}
+              >
+                <div style={{ marginBottom: 12 }}>
+                  <span style={labelStyle}>Debit Amount</span>
+                  <p style={valueStyle}>9.50 CNY</p>
+                </div>
+                <div style={{ marginBottom: 12 }}>
+                  <span style={labelStyle}>Journal No.</span>
+                  <p style={valueStyle}>JRN20260911001</p>
+                </div>
+                <div>
+                  <span style={labelStyle}>Posting Time</span>
+                  <p style={valueStyle}>2026-09-11 14:30:26</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* 底部 Close按钮区域 */}
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           gap: 10,
-          paddingTop: 14,
-          paddingRight: 20,
-          paddingBottom: 14,
-          paddingLeft: 20,
+          padding: "14px 20px",
           justifyContent: "flex-end",
-          alignItems: "flex-start",
           width: "100%",
           border: "1px solid #e5e7eb",
+          marginTop: "auto",
         }}
       >
         <button
@@ -547,21 +188,17 @@ export default function FeeCollectionResultView({
             display: "flex",
             flexDirection: "row",
             gap: 8,
-            paddingTop: 0,
-            paddingRight: 22,
-            paddingBottom: 0,
-            paddingLeft: 22,
+            padding: "0 22px",
             justifyContent: "center",
             alignItems: "center",
             height: 40,
-            backgroundColor: "#e31e24",
-
             borderRadius: 4,
             border: "1px solid #e31e24",
+            backgroundColor: "#e31e24",
             overflow: "hidden",
+            cursor: "pointer",
           }}
-          className="hover:bg-[#C4181E] bg-[#e31e24]"
-
+          className="hover:bg-[#C4181E]"
           onClick={onDone}
         >
           <span
@@ -575,10 +212,49 @@ export default function FeeCollectionResultView({
               whiteSpace: "nowrap",
             }}
           >
-            Done
+            Close
           </span>
         </button>
       </div>
     </div>
   );
 }
+
+// 提取公共样式，复用，减少重复代码
+const labelStyle: React.CSSProperties = {
+  fontSize: 12,
+  fontWeight: 500,
+  fontFamily: "Inter",
+  color: "#6b7280",
+  lineHeight: "19.2px",
+  whiteSpace: "nowrap",
+  display: "block",
+};
+const valueStyle: React.CSSProperties = {
+  fontSize: 14,
+  fontWeight: 700,
+  fontFamily: "Inter",
+  color: "#1a2a4a",
+  lineHeight: "22.4px",
+  margin: "2px 0 0",
+};
+const statusRowStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+  gap: 6,
+  alignItems: "center",
+  marginTop: 2,
+};
+const greenDot: React.CSSProperties = {
+  width: 7,
+  height: 7,
+  backgroundColor: "#16a34a",
+  borderRadius: "50%",
+};
+const statusTextGreen: React.CSSProperties = {
+  fontSize: 14,
+  fontWeight: 700,
+  fontFamily: "Inter",
+  color: "#16a34a",
+  lineHeight: "22.4px",
+};

@@ -21,10 +21,9 @@ import FeeCollectionView from "../component/FeeCollection/FeeCollectionView";
 import { TwoActionMenu } from "../component/shared/TwoActionMenu";
 import FeeAdjustmentView from "../component/FeeConfirmation/FeeAdjustmentView";
 import Overlay from "../component/shared/Overlay";
-import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
 import QueryFeeReceivableView from "../component/QueryFeeReceivable/QueryFeeReceivableView";
-import FeeCollectionResultView1 from "../component/FeeCollection/FeeCollectionResultView1";
 import FeeCollectionProcessComplete from "../component/FeeCollection/FeeCollectionProcessComplete";
+import FeeCollectionResultView from "../component/FeeCollection/FeeCollectionResultView";
 
 export default function HomeScreen() {
   const [step, setStep] = useState<Step>(Step.Init);
@@ -231,7 +230,7 @@ export default function HomeScreen() {
         )}
 
         <Overlay visible={step === Step.FeeCollectionResult}>
-          <FeeCollectionResultView1
+          <FeeCollectionResultView
             result={collectionResult}
             currency={feeResult?.currency ?? "CNY"}
             onDone={() => setStep(Step.FeeCollectionProcessComplete)}
