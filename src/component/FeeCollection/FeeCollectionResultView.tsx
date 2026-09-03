@@ -1,4 +1,8 @@
-export default function FeeCollectionResultView({onDone}: {onDone: () => void}) {
+export default function FeeCollectionResultView({
+  onDone,
+}: {
+  onDone: () => void;
+}) {
   return (
     <div
       style={{
@@ -534,11 +538,11 @@ export default function FeeCollectionResultView({onDone}: {onDone: () => void}) 
             justifyContent: "center",
             alignItems: "center",
             height: 40,
-            backgroundColor: "#e31e24",
             borderRadius: 4,
             border: "1px solid #e31e24",
             overflow: "hidden",
           }}
+          className="hover:bg-[#C4181E] bg-[#e31e24]"
           onClick={onDone}
         >
           <span
