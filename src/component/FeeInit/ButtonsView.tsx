@@ -13,7 +13,7 @@ export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
         alignItems: "flex-start",
         width: 1044,
         height: 56,
-        marginBottom: 36
+        marginBottom: 36,
       }}
     >
       <button
@@ -60,11 +60,11 @@ export default function ButtonsView({ onConfirm }: { onConfirm: () => void }) {
           justifyContent: "center",
           alignItems: "center",
           height: 40,
-          backgroundColor: "#e31e24",
           borderRadius: 4,
           border: "1px solid #e31e24",
           overflow: "hidden",
         }}
+        className="hover:bg-[#C4181E] bg-[#e31e24]"
         onClick={onConfirm}
       >
         <span

@@ -258,7 +258,7 @@ export default function QueryFeeReceivableView({
                 />
               </div>
               <button
-                className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
+                className="flex flex-row gap-2 px-5.5 h-10 justify-center items-center hover:bg-[#C4181E] bg-[#e31e24] rounded border border-[#e31e24] overflow-hidden whitespace-nowrap"
                 onClick={addFeeItem}
               >
                 <span className="text-sm font-semibold font-Inter text-white text-center leading-5.25">

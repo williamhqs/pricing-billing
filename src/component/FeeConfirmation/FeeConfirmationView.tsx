@@ -631,11 +631,11 @@ export default function FeeConfirmationView({
               justifyContent: "center",
               alignItems: "center",
               height: 40,
-              backgroundColor: "#e31e24",
               borderRadius: 4,
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            className="hover:bg-[#C4181E] bg-[#e31e24]"
             onClick={onConfirm}
           >
             <span

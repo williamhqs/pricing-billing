@@ -522,7 +522,6 @@ function CenterDetailView() {
         </div>
       </div>
 
-      {/* Footer */}
       <div
         style={{
           flexShrink: 0,

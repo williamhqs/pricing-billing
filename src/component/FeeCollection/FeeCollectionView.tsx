@@ -581,11 +581,11 @@ export default function FeeCollectionView({
               left: 843.296875,
               top: 0,
               height: 44,
-              backgroundColor: "#e31e24",
               borderRadius: 4,
               border: "1px solid #e31e24",
               overflow: "hidden",
             }}
+            className="hover:bg-[#C4181E] bg-[#e31e24]"
             onClick={onFeeCollect}
           >
             <span
