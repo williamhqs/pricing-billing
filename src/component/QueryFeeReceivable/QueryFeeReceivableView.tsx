@@ -21,7 +21,6 @@ export default function QueryFeeReceivableView({
   const [totalAmount, setTotalAmount] = useState("0.00");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const [queryResultBizSnglNo, setQueryResultBizSnglNo] = useState<string>("");
   const [queryResultTxIntdNo, setQueryResultTxIntdNo] = useState<string>("");
   const [businessReferenceNo, setBusinessReferenceNo] =
@@ -69,7 +68,6 @@ export default function QueryFeeReceivableView({
       const sum = items.reduce((acc, i) => acc + Number(i.amount), 0);
       setTotalAmount(sum.toFixed(2));
 
-      // 存储第一条结果的 bizSnglNo 和 txIntdNo 供后续传递
       if (result.data.length > 0) {
         const bizSnglNo = result.data[0].jsonData.bizSnglNo;
         const txIntdNo = result.data[0].jsonData.txIntdNo || "";
@@ -77,10 +75,13 @@ export default function QueryFeeReceivableView({
         setQueryResultBizSnglNo(bizSnglNo);
         setQueryResultTxIntdNo(txIntdNo);
 
-        // 缓存到 localStorage 以便页面刷新后使用
         localStorage.setItem("queryBizSnglNo", bizSnglNo);
         if (txIntdNo) {
           localStorage.setItem("queryTxIntdNo", txIntdNo);
+        }
+
+        if (result.data.length > 0) {
+          setQueryResultBizSnglNo(result.data[0].jsonData.bizSnglNo);
         }
       }
     } catch (err: unknown) {

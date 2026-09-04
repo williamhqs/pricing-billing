@@ -50,7 +50,7 @@ export default function HomeScreen() {
     () => localStorage.getItem("queryBizSnglNo") || undefined,
   );
   const [queryTxIntdNo, setQueryTxIntdNo] = useState<string | undefined>(
-    () => localStorage.getItem("queryTxIntdNo") || undefined,
+    () => localStorage.getItem("queryTxIntdNo") || undefined
   );
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
