@@ -3,7 +3,7 @@ import SelectedFeeItemsView from "./SelectedFeeItemsView";
 import { FeeReceivableTableRowView } from "./FeeReceivableTableRowView";
 import { FeeReceivableTableHeaderView } from "./FeeReceivableTableHeaderView";
 import type { FeeReceivableItem } from "../../types/types";
-import { ProcessStatusLabel } from "../../types/api";
+import { ProcessStatusLabel, type ApprovalResultItem } from "../../types/api";
 import { queryApprovalResult } from "../../api/queryApprovalResult";
 import { ApiError } from "../../api/calcFeeRegDtl";
 import { BankInput } from "../shared/BankInput";
@@ -16,13 +16,15 @@ export default function QueryFeeReceivableView({
   const [feeReceivableItems, setFeeReceivableItems] = useState<
     FeeReceivableItem[]
   >([]);
+  const [approvalResultItems, setApprovalResultItems] = useState<
+    ApprovalResultItem[]
+  >([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [totalAmount, setTotalAmount] = useState("0.00");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [queryResultBizSnglNo, setQueryResultBizSnglNo] = useState<string>("");
-  const [queryResultTxIntdNo, setQueryResultTxIntdNo] = useState<string>("");
+
   const [businessReferenceNo, setBusinessReferenceNo] =
     useState("");
   const [customerNo, setCustomerNo] = useState("20260330000002");
@@ -55,7 +57,7 @@ export default function QueryFeeReceivableView({
         const status =
           ProcessStatusLabel[item.processStatus] ?? item.processStatus;
         return {
-          numberID: item.jsonData.feeNo,
+          numberID: item.id,
           name: item.jsonData.feeNm || "Domestic Transfer Fee - Corporate",
           amount: String(item.jsonData.actlRecvAmt),
           currency: "CNY",
@@ -63,27 +65,11 @@ export default function QueryFeeReceivableView({
         };
       });
 
+      setApprovalResultItems(result.data);
       setFeeReceivableItems(items);
       setTotalRecords(items.length);
       const sum = items.reduce((acc, i) => acc + Number(i.amount), 0);
       setTotalAmount(sum.toFixed(2));
-
-      if (result.data.length > 0) {
-        const bizSnglNo = result.data[0].jsonData.bizSnglNo;
-        const txIntdNo = result.data[0].jsonData.txIntdNo || "";
-
-        setQueryResultBizSnglNo(bizSnglNo);
-        setQueryResultTxIntdNo(txIntdNo);
-
-        localStorage.setItem("queryBizSnglNo", bizSnglNo);
-        if (txIntdNo) {
-          localStorage.setItem("queryTxIntdNo", txIntdNo);
-        }
-
-        if (result.data.length > 0) {
-          setQueryResultBizSnglNo(result.data[0].jsonData.bizSnglNo);
-        }
-      }
     } catch (err: unknown) {
       const message =
         err instanceof ApiError
@@ -504,7 +490,24 @@ export default function QueryFeeReceivableView({
                 .reduce((sum, item) => sum + Number(item.amount), 0)
                 .toFixed(2);
 
-              onProceed(total, queryResultBizSnglNo || undefined, queryResultTxIntdNo || undefined);
+              // 获取选中的第一个项目对应的完整数据
+              const firstSelectedId = selectedIds[0];
+              const selectedApprovalItem = approvalResultItems.find(
+                (item) => item.id === firstSelectedId,
+              );
+
+              const bizSnglNo = selectedApprovalItem?.jsonData.bizSnglNo;
+              const intdNo = selectedApprovalItem?.jsonData.intdNo;
+
+              // 缓存到 localStorage
+              if (bizSnglNo) {
+                localStorage.setItem("queryBizSnglNo", bizSnglNo);
+              }
+              if (intdNo) {
+                localStorage.setItem("queryTxIntdNo", intdNo);
+              }
+
+              onProceed(total, bizSnglNo, intdNo);
             }}
           >
             <span

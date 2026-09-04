@@ -17,6 +17,7 @@ export interface ApprovalFormData {
   actlRecvAmt: number;
   custAcctNo: string;
   approvalOpinion: string;
+  intdNo?: string;
 }
 
 function buildRequest(data: ApprovalFormData): BizAssetSyncRequest {
@@ -35,6 +36,7 @@ function buildRequest(data: ApprovalFormData): BizAssetSyncRequest {
       actlRecvAmt: data.actlRecvAmt,
       custAcctNo: data.custAcctNo,
       approvalOpinion: data.approvalOpinion,
+      intdNo: data.intdNo,
     },
   };
 }

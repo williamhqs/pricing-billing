@@ -56,7 +56,7 @@ function buildRequest(formData: TransferFormData): CalcFeeRegDtlRequest {
     txDt: formatTxDt(),
     sysTm: formatSysTm(),
     operTelrNo: "001",
-    lunchAppSysCd: "001",
+    lunchAppSysCd: "004",
     terminalTypCd: "01",
     custNo: "20260330000002",
     tranCd: "0101",

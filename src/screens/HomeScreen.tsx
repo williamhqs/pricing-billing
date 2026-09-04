@@ -97,6 +97,7 @@ export default function HomeScreen() {
         actlRecvAmt,
         custAcctNo: formData.payerAccountNo || "622200000000000000",
         approvalOpinion: "Platinum client requesting discount.",
+        intdNo: feeResult.intdNo,
       });
       setselectedMenuKey("FeeCollection");
       setStep(Step.FeeCollection);
