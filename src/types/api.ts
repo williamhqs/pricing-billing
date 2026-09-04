@@ -165,7 +165,18 @@ export const ProcessStatus = { APPROVING: "1", APPROVED: "2", REJECTED: "3", REV
 export const ProcessStatusLabel: Record<string, string> = { "1": "Approving", "2": "Approved", "3": "Rejected", "4": "Revoked", "5": "Terminated" };
 export const ExecuteStatus = { NOT_EXECUTED: "1", SUCCESS: "2", FAILED: "3" } as const;
 
-export interface ApprovalJsonData { bizSnglNo: string; custNo: string; custAcctNo?: string; feeNm: string; actlRecvAmt: number; feeNo: string; custName: string; custLevel: string; approvalOpinion: string; }
+export interface ApprovalJsonData {
+  bizSnglNo: string;
+  custNo: string;
+  custAcctNo?: string;
+  feeNm: string;
+  actlRecvAmt: number;
+  feeNo: string;
+  custName: string;
+  custLevel: string;
+  approvalOpinion: string;
+  txIntdNo?: string;
+}
 export interface ApprovalResultItem { id: string; code: string; name: string; typeConfigCode: string; typeConfigName: string; processStatus: string; executeStatus: string; jsonData: ApprovalJsonData; [key: string]: unknown; }
 export interface QueryApprovalResultRequest { typeConfigCode: string; bizSnglNo?: string; custNo?: string; custAcctNo?: string; }
 export interface QueryApprovalResultResponse { code: string; msg: string; data: ApprovalResultItem[]; permitPropertys: unknown; }

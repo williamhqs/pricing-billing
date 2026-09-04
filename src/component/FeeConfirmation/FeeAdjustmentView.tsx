@@ -29,8 +29,6 @@ export default function FeeAdjustmentView({
     ? String(feeResult.proposedFee.split(" ")[0])
     : "9.50";
   const [manualAmt, setManualAmt] = useState(initialAmt);
-  // approvalOpinion 预留，等页面添加 adjustment reason 输入框后启用
-
   const [approvalReason, setApprovalReason] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -11,7 +11,7 @@ import { BankInput } from "../shared/BankInput";
 export default function QueryFeeReceivableView({
   onProceed,
 }: {
-  onProceed: (amountReceivable?: string) => void;
+  onProceed: (amountReceivable?: string, bizSnglNo?: string, txIntdNo?: string) => void;
 }) {
   const [feeReceivableItems, setFeeReceivableItems] = useState<
     FeeReceivableItem[]
@@ -22,8 +22,10 @@ export default function QueryFeeReceivableView({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [queryResultBizSnglNo, setQueryResultBizSnglNo] = useState<string>("");
+  const [queryResultTxIntdNo, setQueryResultTxIntdNo] = useState<string>("");
   const [businessReferenceNo, setBusinessReferenceNo] =
-    useState("biz1788344039912");
+    useState("");
   const [customerNo, setCustomerNo] = useState("20260330000002");
   const [customerAccountNo, setCustomerAccountNo] =
     useState("622200000000000000");
@@ -66,6 +68,21 @@ export default function QueryFeeReceivableView({
       setTotalRecords(items.length);
       const sum = items.reduce((acc, i) => acc + Number(i.amount), 0);
       setTotalAmount(sum.toFixed(2));
+
+      // 存储第一条结果的 bizSnglNo 和 txIntdNo 供后续传递
+      if (result.data.length > 0) {
+        const bizSnglNo = result.data[0].jsonData.bizSnglNo;
+        const txIntdNo = result.data[0].jsonData.txIntdNo || "";
+
+        setQueryResultBizSnglNo(bizSnglNo);
+        setQueryResultTxIntdNo(txIntdNo);
+
+        // 缓存到 localStorage 以便页面刷新后使用
+        localStorage.setItem("queryBizSnglNo", bizSnglNo);
+        if (txIntdNo) {
+          localStorage.setItem("queryTxIntdNo", txIntdNo);
+        }
+      }
     } catch (err: unknown) {
       const message =
         err instanceof ApiError
@@ -486,7 +503,7 @@ export default function QueryFeeReceivableView({
                 .reduce((sum, item) => sum + Number(item.amount), 0)
                 .toFixed(2);
 
-              onProceed(total);
+              onProceed(total, queryResultBizSnglNo || undefined, queryResultTxIntdNo || undefined);
             }}
           >
             <span

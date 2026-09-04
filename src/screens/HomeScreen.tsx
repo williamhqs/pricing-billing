@@ -46,6 +46,12 @@ export default function HomeScreen() {
   const [amountReceivable, setAmountReceivable] = useState<string | undefined>(
     undefined,
   );
+  const [queryBizSnglNo, setQueryBizSnglNo] = useState<string | undefined>(
+    () => localStorage.getItem("queryBizSnglNo") || undefined,
+  );
+  const [queryTxIntdNo, setQueryTxIntdNo] = useState<string | undefined>(
+    () => localStorage.getItem("queryTxIntdNo") || undefined,
+  );
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
 
@@ -90,7 +96,7 @@ export default function HomeScreen() {
         feeNm: feeResult.feeType,
         actlRecvAmt,
         custAcctNo: formData.payerAccountNo || "622200000000000000",
-        approvalOpinion: "客户为白金客户，申请优惠",
+        approvalOpinion: "Platinum client requesting discount.",
       });
       setselectedMenuKey("FeeCollection");
       setStep(Step.FeeCollection);
@@ -219,9 +225,10 @@ export default function HomeScreen() {
           <FeeCollectionView
             feeResult={feeResult}
             amountReceivable={amountReceivable}
+            bizSnglNoOverride={queryBizSnglNo}
             custNo="20260330000002"
             custAcctNo={formData.payerAccountNo || "622200000000000000"}
-            txIntdNo={feeResult?.intdNo ?? ""}
+            txIntdNo={feeResult?.intdNo ?? queryTxIntdNo ?? ""}
             onFeeCollect={(result) => {
               setCollectionResult(result);
               setStep(Step.FeeCollectionResult);
@@ -239,8 +246,10 @@ export default function HomeScreen() {
 
         {step === Step.QueryFeeReceivable && (
           <QueryFeeReceivableView
-            onProceed={(receivableAmt) => {
+            onProceed={(receivableAmt, bizSnglNo, txIntdNo) => {
               if (receivableAmt) setAmountReceivable(receivableAmt);
+              if (bizSnglNo) setQueryBizSnglNo(bizSnglNo);
+              if (txIntdNo) setQueryTxIntdNo(txIntdNo);
               setStep(Step.QueryFeeReceivableConfirm);
             }}
           />
