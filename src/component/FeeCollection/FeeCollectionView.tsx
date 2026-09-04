@@ -12,6 +12,7 @@ import BankLabelValue from "../shared/BankLabelValue";
 interface FeeCollectionViewProps {
   feeResult: FeeCalculationResult | null;
   amountReceivable?: string;
+  bizSnglNoOverride?: string;
   custNo: string;
   custAcctNo: string;
   txIntdNo: string;
@@ -21,12 +22,13 @@ interface FeeCollectionViewProps {
 export default function FeeCollectionView({
   feeResult,
   amountReceivable,
+  bizSnglNoOverride,
   custNo,
   custAcctNo,
   txIntdNo,
   onFeeCollect,
 }: FeeCollectionViewProps) {
-  const bizSnglNo = feeResult?.bizSnglNo ?? "";
+  const bizSnglNo = feeResult?.bizSnglNo ?? bizSnglNoOverride ?? "";
   const feeNo = feeResult?.feeCode ?? "1605";
   const feeName = feeResult?.feeType ?? "Domestic Transfer Fee - Corporate";
   const currency = feeResult?.currency ?? "CNY";
@@ -132,7 +134,6 @@ export default function FeeCollectionView({
           </span>
         </div>
 
-        {/* 主体区域：Grid，复用BankLabelValue */}
         <div
           style={{
             width: "100%",
@@ -146,7 +147,6 @@ export default function FeeCollectionView({
           <BankLabelValue label="Fee No." value={feeNo} />
           <BankLabelValue label="Fee Name" value={feeName} />
 
-          {/* Amount Receivable 单独写，保留红色加粗 */}
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <span
               style={{

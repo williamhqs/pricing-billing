@@ -29,7 +29,7 @@ function buildRequest(data: ApprovalFormData): BizAssetSyncRequest {
       bizSnglNo: data.bizSnglNo,
       custNo: data.custNo,
       custName: data.custName,
-      custLevel: "白金客户",
+      custLevel: "Platinum client",
       feeNo: data.feeNo,
       feeNm: data.feeNm,
       actlRecvAmt: data.actlRecvAmt,
@@ -40,7 +40,7 @@ function buildRequest(data: ApprovalFormData): BizAssetSyncRequest {
 }
 
 /**
- * 调用 biz-asset/sync 接口提交审批
+ * Call biz-asset/sync rest API to synchronize fee approval data.
  *
  * @throws {ApiError}
  */
