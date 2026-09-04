@@ -51,7 +51,7 @@ function buildRequest(p: GthrAfterFeeParams): GthrAfterFeeRequest {
     txDt: formatTxDt(),
     sysTm: formatSysTm(),
     operTelrNo: "001",
-    lunchAppSysCd: "001",
+    lunchAppSysCd: "004",
     custNo: p.custNo,
     traceId: `TRC${formatTxDt()}${String(ts).slice(-10)}`,
     spanId: `SPN${String(ts).slice(-8)}`,

@@ -140,6 +140,7 @@ export interface BizAssetJsonData {
   actlRecvAmt: number;
   custAcctNo: string;
   approvalOpinion: string;
+  intdNo?: string;
 }
 
 /** biz-asset/sync 完整请求体 */
@@ -175,7 +176,7 @@ export interface ApprovalJsonData {
   custName: string;
   custLevel: string;
   approvalOpinion: string;
-  txIntdNo?: string;
+  intdNo?: string;
 }
 export interface ApprovalResultItem { id: string; code: string; name: string; typeConfigCode: string; typeConfigName: string; processStatus: string; executeStatus: string; jsonData: ApprovalJsonData; [key: string]: unknown; }
 export interface QueryApprovalResultRequest { typeConfigCode: string; bizSnglNo?: string; custNo?: string; custAcctNo?: string; }
