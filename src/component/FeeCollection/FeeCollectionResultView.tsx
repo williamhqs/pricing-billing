@@ -25,7 +25,7 @@ export default function FeeCollectionResultView({
         flexDirection: "column",
         gap: 0,
         width: 760,
-        height: 650,
+        height: 700,
         backgroundColor: "#ffffff",
         borderRadius: 8,
         boxShadow: "0px 12px 40px #1a2a4a2e",
