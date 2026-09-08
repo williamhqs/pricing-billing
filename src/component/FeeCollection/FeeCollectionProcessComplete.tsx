@@ -141,7 +141,7 @@ export default function FeeCollectionProcessComplete() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Demonstration Complete
+                Collection Complete
               </span>
             </div>
           </div>

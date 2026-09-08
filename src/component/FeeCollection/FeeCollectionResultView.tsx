@@ -1,4 +1,5 @@
 import type { FeeCollectionResult } from "../../types/api";
+import BankLabelValue from "../shared/BankLabelValue";
 
 interface FeeCollectionResultViewProps {
   result: FeeCollectionResult | null;
@@ -24,7 +25,7 @@ export default function FeeCollectionResultView({
         flexDirection: "column",
         gap: 0,
         width: 760,
-        height: 600,
+        height: 650,
         backgroundColor: "#ffffff",
         borderRadius: 8,
         boxShadow: "0px 12px 40px #1a2a4a2e",
@@ -61,7 +62,7 @@ export default function FeeCollectionResultView({
       </div>
 
       <div style={{ padding: "18px 24px 20px" }}>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%" }} className="p-2.5">
           <span
             style={{
               fontSize: 12,
@@ -84,7 +85,17 @@ export default function FeeCollectionResultView({
                 <span style={labelStyle}>Payment Reference No.</span>
                 <p style={valueStyle}>PAY20260911001</p>
               </div>
-              <div>
+
+              <div style={{ marginBottom: 12 }}>
+                <span style={labelStyle}>Exception Reason</span>
+                <div style={statusRowStyle}>
+                  <div className="w-1.75 h-1.75 bg-orange-600 rounded-full"></div>
+                  <span className="text-[14px] font-bold font-Inter text-orange-600 leading-[22.4px]">
+                    Insufficient Balance
+                  </span>
+                </div>
+              </div>
+              <div style={{ marginBottom: 12 }}>
                 <span style={labelStyle}>Status</span>
                 <div style={statusRowStyle}>
                   <div style={greenDot}></div>
@@ -105,9 +116,18 @@ export default function FeeCollectionResultView({
                 <span style={labelStyle}>Collection Amount</span>
                 <p style={valueStyle}>9.50 CNY</p>
               </div>
-              <div>
+              <div style={{ marginBottom: 12 }}>
                 <span style={labelStyle}>Collection Time</span>
                 <p style={valueStyle}>{collectionTime}</p>
+              </div>
+              <div style={{ marginBottom: 12 }}>
+                <span style={labelStyle}>Manual Review</span>
+                <div style={statusRowStyle}>
+                  <div style={greenDot}></div>
+                  <span style={statusTextGreen}>
+                    Approved-Overdraft Allowed
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -170,7 +190,6 @@ export default function FeeCollectionResultView({
         </div>
       </div>
 
-      {/* 底部 Close按钮区域 */}
       <div
         style={{
           display: "flex",
