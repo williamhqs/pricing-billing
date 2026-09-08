@@ -605,7 +605,7 @@ export default function FeeConfirmationView({
             height: 56,
           }}
         >
-          {/* <button
+          <button
             style={{
               display: "flex",
               flexDirection: "row",
@@ -622,7 +622,8 @@ export default function FeeConfirmationView({
               border: "1px solid #cbd5e1",
               overflow: "hidden",
             }}
-            onClick={onAdjustment}
+            className="transition-all duration-150 active:scale-[0.98] active:bg-slate-100! active:border-slate-500!"
+            onClick={() => {}}
           >
             <span
               style={{
@@ -637,7 +638,7 @@ export default function FeeConfirmationView({
             >
               Request Adjustment
             </span>
-          </button> */}
+          </button>
           <button
             style={{
               display: "flex",
@@ -674,7 +675,19 @@ export default function FeeConfirmationView({
           </button>
         </div>
         {error && (
-          <div style={{ padding: "10px 16px", marginTop: 8, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 6, color: "#dc2626", fontSize: 13, fontFamily: "Inter", width: "100%" }}>
+          <div
+            style={{
+              padding: "10px 16px",
+              marginTop: 8,
+              backgroundColor: "#fef2f2",
+              border: "1px solid #fecaca",
+              borderRadius: 6,
+              color: "#dc2626",
+              fontSize: 13,
+              fontFamily: "Inter",
+              width: "100%",
+            }}
+          >
             {error}
           </div>
         )}
